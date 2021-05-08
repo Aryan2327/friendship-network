@@ -15,7 +15,13 @@ scrub: clean
 	rm ~* *.swp *\#
 
 run: $(EXECUTABLE)
-	./$(EXECUTABLE) $(inputdir) $(workdir)
+	./$(EXECUTABLE) < commands.txt
 
 memcheck: $(EXECUTABLE)
 	valgrind ./$(EXECUTABLE) $(inputdir) $(workdir)
+
+Main:	Main.o
+		g++ Main.o -o Main
+
+Main.o:	Main.cpp
+		g++ -c Main.cpp
