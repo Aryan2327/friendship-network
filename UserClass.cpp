@@ -11,25 +11,25 @@ UserClass::UserClass(){
 UserClass::User(string n){
 
 }
-
 		
 void UserClass::setName(string n){
 	saved_n = n;
 
 }
-		
-
 
 string UserClass::getName(){
 	return saved_n;	
-
 }
 
-void UserClass::createFriends(){
-
+void UserClass::createFren(){
+	vector<string> frenVector;
 }
 
-void UserClass::addFriends(){
+void UserClass::addFren(string n){
+	frenVector.push_back(n);
+}
+
+void UserClass::remFren(){
 
 }
 		
