@@ -25,3 +25,6 @@ Main:	Main.o
 
 Main.o:	Main.cpp
 		g++ -c Main.cpp
+
+clean:
+	rm -f *.o $(EXECUTABLE)
