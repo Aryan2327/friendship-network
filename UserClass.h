@@ -17,11 +17,14 @@ class UserClass {
 		string getName();
 		//get user's name
 		
-		void createFriends();
+		void createFren();
 		//create friends vector		
 
-		void addFriends();
-		//add user's friends using a vector
+		void addFren(string n);
+		//add user to friend vector
+		
+		void remFren();
+		//removes a friendship from friend vector
 
 		
 	private:
