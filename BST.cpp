@@ -18,7 +18,7 @@ void BST<T>::insert(T key){
 }
 
 template <typename T>
-void BST<T>::insertHelper(T key, Node* node){
+void BST<T>::insertHelper(T key, Node*& node){
     if (node == nullptr){
         node = new Node(key);
     }

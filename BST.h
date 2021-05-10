@@ -23,7 +23,7 @@ class BST{
         void insert(T key);
     private:
         Node* root;
-        void insertHelper(T key, Node* root);
+        void insertHelper(T key, Node*& root);
 };
 #include "BST.cpp"
 #endif
