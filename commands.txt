@@ -1,1 +1,4 @@
+
+add song a
+add song b
 exit
