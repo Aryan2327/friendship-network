@@ -1,5 +1,5 @@
-#ifndef BST
-#define BST
+#ifndef BST_H
+#define BST_H
 #include <string>
 #include <stdlib.h>
 
@@ -20,8 +20,10 @@ class BST{
         };
 
         BST();
+        void insert(T key);
     private:
         Node* root;
+        void insertHelper(T key, Node*& root);
 };
 #include "BST.cpp"
 #endif

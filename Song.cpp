@@ -5,10 +5,16 @@
 
 using namespace std;
 
+Song::Song(){}
+
+Song::Song(string name){
+	title = name;
+}
+
 void Song::setTitle(string t){
   title = t;
 }
-string Song::getTitle(){
+string Song::getName(){
   return title;
 }
 void Song::addListen(){

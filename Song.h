@@ -6,11 +6,13 @@
 using namespace std;
 class Song{ 
 public:
+  Song();
+  Song(string name);
   void setTitle(string);
-  string getTitle();
+  string getName();
   void addListen();
   void resetListens();
-  int getListens();
+  unsigned int getListens();
 
 private:
   string title;
