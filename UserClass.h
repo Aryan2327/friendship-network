@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iostream>
 #include <cstdlib>
 
 using namespace std;
@@ -8,26 +9,31 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		User(string n);
-		//holds all user attributes << add vector of friends
+		UserClass(string n, fren_vertex);
+		//stores user attributes << name & friendships
 
 		void setName(string n);
 		//add new user's name
 		
 		string getName();
 		//get user's name
-		
-		void createFren();
-		//create friends vector		
 
-		void addFren(string n);
-		//add user to friend vector
-		
-		void remFren();
-		//removes a friendship from friend vector
+		void addFren(string user);
+		//add user to friends vector 
 
-		
+		void remFren(string user);
+		//remove user vertex from friends vector 
+
+	
 	private:
-		string saved_n; 
-		//saved name 
+		//Variables
+		string saved_n;
+		string rem_user;
+		int g;  
+
+
+		vector<string> fren_vertex;
+		//vector of friend vertices
+
+
 };

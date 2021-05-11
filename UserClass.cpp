@@ -8,7 +8,7 @@ UserClass::UserClass(){
 //stores new user information
 }
 
-UserClass::User(string n){
+UserClass::UserClass(string n, fren_vertex){
 
 }
 		
@@ -21,15 +21,17 @@ string UserClass::getName(){
 	return saved_n;	
 }
 
-void UserClass::createFren(){
-	vector<string> frenVector;
+void UserClass::addFren(string user){
+	user.getName();
+	fren_vertex.push_back(user);
 }
 
-void UserClass::addFren(string n){
-	frenVector.push_back(n);
-}
+void UserClass::remFren(string user){
+	rem_user = user.getName();
+	for(int i = 0; i < fren_vertex.size(); i++ ){
+		if(rem_user == fren_vector.at(g))
+		fren_vertex.erase(erm_user);
 
-void UserClass::remFren(){
-
+	}
 }
-		
+	
