@@ -8,7 +8,7 @@ UserClass::UserClass(){
 //stores new user information
 }
 
-UserClass::User(string n){
+UserClass::UserClass(string n){
 
 }
 		

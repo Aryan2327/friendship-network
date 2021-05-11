@@ -8,7 +8,7 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		User(string n);
+		UserClass(string n);
 		//holds all user attributes << just name?
 
 		void setName(string n);
