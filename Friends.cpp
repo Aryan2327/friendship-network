@@ -15,7 +15,7 @@ void Friends::createFren(){
 	vector<string> fren_vertex;
 }
 
-void Friends::addFren(vector<string> fren_vertex, string user){
+void Friends::addFren(string user){
 	user.getName();
 	fren_vertex.push_back(user);
 }

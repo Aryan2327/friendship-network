@@ -14,7 +14,7 @@ class Friends{
 		void createFren();
 		//create friends vector		
 
-		void addFren(vector<string> fren_vertex, string user);
+		void addFren(string user);
 		//add user vertex to friends vector 
 		
 		void bondFren(int fromfren1, int tofren2);
