@@ -34,4 +34,3 @@ void UserClass::remFren(string user){
 
 	}
 }
-	
