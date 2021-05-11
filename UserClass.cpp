@@ -30,7 +30,7 @@ void UserClass::remFren(string user){
 	rem_user = user.getName();
 	for(int i = 0; i < fren_vertex.size(); i++ ){
 		if(rem_user == fren_vector.at(g))
-		fren_vertex.erase(erm_user);
+		fren_vertex.erase(rem_user);
 
 	}
 }
