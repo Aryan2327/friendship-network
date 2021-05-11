@@ -16,8 +16,7 @@ class UserClass {
 		
 		string getName();
 		//get user's name
-
-		
+	
 	private:
 		string saved_n; 
 		//saved name 
