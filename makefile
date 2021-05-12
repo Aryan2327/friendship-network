@@ -20,14 +20,17 @@ run: $(EXECUTABLE)
 memcheck: $(EXECUTABLE)
 	valgrind ./$(EXECUTABLE) < commands.txt
 
-Main:	Main.o Song.o
-		g++ Main.o Song.o -o Main
+Main:	Main.o Song.o UserClass.o
+		g++ Main.o Song.o UserClass.o -o Main
 
 Main.o:	Main.cpp
 		g++ -c Main.cpp
 
 Song.o: Song.cpp
 		g++ -c Song.cpp
+
+UserClass.o:	UserClass.cpp
+		g++ -c UserClass.cpp
 
 clean:
 	rm -f *.o $(EXECUTABLE)

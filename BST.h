@@ -21,9 +21,12 @@ class BST{
 
         BST();
         void insert(T key);
+        void print(); //inorder traversal
+        ~BST();
     private:
         Node* root;
-        void insertHelper(T key, Node*& root);
+        void insertHelper(T key, Node*& node);
+        void print(Node*& node);
 };
 #include "BST.cpp"
 #endif
