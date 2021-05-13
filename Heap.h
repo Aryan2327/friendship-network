@@ -14,6 +14,7 @@ public:
 	void swap(int, int);
 	void increaseKey(int i);	//may need to add another parameter for new value if needed, for now adds 1
 	void print();
+	void hAddListen(Song);
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	vector<Song> list;
 	unsigned int numElements;

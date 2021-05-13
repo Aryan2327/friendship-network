@@ -40,7 +40,7 @@ void Heap::swap(int pos1, int pos2){
 
 }
 void Heap::increaseKey(int i) {
-	list[i].addListen();
+	hAddListen(list[i]);
 	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
@@ -54,4 +54,7 @@ void Heap::print() {
 			 << "Index: " << s.getIndex() << endl
 			 << "Listens: " << s.getListens() << endl << endl;
 	}
+}
+void Heap::hAddListen(Song s) {
+	s.addListen();
 }
