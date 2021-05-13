@@ -5,7 +5,7 @@ Heap::Heap(int cap){
 	capacity = cap;
 	numElements = 0;
 	arr = new int[cap];
-	list = new vector<int>{};
+	//list = new vector<int>{};
 }
 int Heap::left(int i) {
 	return (2*i)+1;
@@ -55,7 +55,7 @@ void Heap::maxHeapify(int i) {
 	if(r < numElements && arr[r] > arr[i])
 		max = r;
 	if(max != i){
-		swap(&arr[i], &arr[max]);
+		swap(i, max);
 		maxHeapify(max);
 	}
 }

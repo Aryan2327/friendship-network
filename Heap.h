@@ -13,7 +13,7 @@ public:
 	void maxHeapify(int);
 	void insert(int);
 	void swap(int, int);
-	void increaseKey(int, int);
+	void increaseKey(int);	//may need to add another parameter for new value if needed, for now adds 1
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	vector<int> list;
 	int *arr; // pointer to array of elements in heap
