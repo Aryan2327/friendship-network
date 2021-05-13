@@ -10,7 +10,7 @@ public:
   	string getTitle();
   	void addListen();
   	void resetListens();
-  	int getListens();
+  	unsigned int getListens();
   	void setIndex(unsigned int);
   	unsigned int getIndex();
 private:
