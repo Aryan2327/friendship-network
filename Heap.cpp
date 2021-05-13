@@ -41,7 +41,7 @@ void Heap::swap(int pos1, int pos2){
 }
 void Heap::increaseKey(int i) {
 	list[i].addListen();
-	cout << list[i].getListens() << endl;
+	cout << list[i].getTitle() << " " << list[i].getListens() << endl;
 	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
