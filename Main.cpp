@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[]){
    std::string input;
-   BST<Users> users;
+   BST<UserClass> users;
    BST<Song> library;
    BST<Song> system;
    while (input != "exit"){
@@ -63,6 +63,8 @@ int main(int argc, char *argv[]){
 
 	   else if (command.getOperation() == "remove"){
 		   // Remove song from primary library and set the song listens in the heap to 0
+		   Song song(command.getArg1());
+		   library.remove(song);
 
 	   }
 
