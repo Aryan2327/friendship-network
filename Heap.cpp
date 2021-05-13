@@ -59,5 +59,5 @@ void Heap::print() {
 	}
 }
 Song & Heap::getSong(int i) {
-	return &list[i];
+	return list[i];
 }
