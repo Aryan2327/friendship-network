@@ -12,33 +12,39 @@ int Heap::right(int i) {
 int Heap::parent(int i) {
 	return (i-1)/2;
 }
-void Heap::insert() {	//no key parameter since all values start at 0
-	list.push_back(0);
+void Heap::insert(Song s) {	//no key parameter since all values start at 0
+	//may have to implement song existence check
+	s.resetListens();
+	list.push_back(s);
 	//may have to implement a fix to the heap here
 }
 
-int Heap::extractMax() {
-	int temp = list.front();
+Song Heap::extractMax() {
+	Song temp = list.front();
 	list.erase(list.begin());
 	return temp;
 }
 
 void Heap::swap(int pos1, int pos2){
-	int temp = list[pos1];
+	Song temp = list[pos1];
 	list[pos1] = list[pos2];
 	list[pos2] = temp;
 
 }
-void Heap::increaseKey(int i) {
-	list[i] += 1;
-	while(i != 0 && list[parent(i)] < list[i]){
-		swap(i, parent(i));
-		i = parent(j);
+void Heap::increaseKey(Song s) {
+	s.addListen();
+	unsigned int temp;
+	while(s.getIndex() != 0 && list[parent(s.getIndex())].getListens() < list[s.getIndex()].getListens()){
+		temp = s.getIndex();
+		swap(temp, parent(temp));
+		s.setIndex(parent(temp));
+		list[parent(temp)].setIndex(temp);
 	}
 }
 void Heap::print() {
-	for(int i : list){
-		cout << i << " ";
+	for(Song s : list) {
+		cout << "Title: " << s.getTitle() << endl
+			 << "Index: " << s.getIndex() << endl
+			 << "Listens: " << s.getListens() << endl << endl;
 	}
-	cout << endl;
 }

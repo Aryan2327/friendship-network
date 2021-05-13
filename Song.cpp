@@ -20,3 +20,9 @@ void Song::resetListens(){
 unsigned int Song::getListens(){
 	return listens;
 }
+void Song::setIndex(unsigned int i) {
+	heapIndex = i;
+}
+unsigned int Song::getIndex() {
+	return heapIndex;
+}

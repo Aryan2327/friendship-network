@@ -32,5 +32,5 @@ Main.o:	Main.cpp
 HeapTest: HeapTest.o
 		g++ HeapTest.o -o HeapTest
 
-HeapTest.o:	HeapTest.cpp Heap.cpp
-		g++ -c HeapTest.cpp Heap.cpp
+HeapTest.o:	HeapTest.cpp Heap.cpp Song.cpp
+		g++ -c HeapTest.cpp Heap.cpp Song.cpp

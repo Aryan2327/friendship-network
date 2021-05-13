@@ -1,6 +1,7 @@
 #include "Heap.h"
 #include "Heap.cpp"
 int main(int argc, char *argv[]){
+	/*
 	Heap heap = Heap();
 	heap.insert();
 	heap.insert();
@@ -18,5 +19,5 @@ int main(int argc, char *argv[]){
 	cout << "increased i 1 " <<endl;
 	heap.print();
 	cout << heap.extractMax() << endl;
-	heap.print();
+	heap.print();*/
 }
