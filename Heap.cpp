@@ -1,0 +1,59 @@
+#include "Heap.h"
+#include <iostream>
+using namespace std;
+Heap::Heap(int cap){
+	capacity = cap;
+	numElements = 0;
+	arr = new int[cap];
+}
+void Heap::insert(int key) {
+	if(numElements == capacity){
+		cout << "Overflow Error in insert()\n";
+		return;
+	}
+	int i = numElements;		//inserts key at the end
+	numElements++;
+	arr[i] = key;
+	//may have to implement a fix to the heap here
+}
+int Heap::extractMax() {
+	if(numElements <= 0){
+		return -1;			//might have to change
+	}
+	if(numElements == 1){
+		numElements--;
+		return arr[0];
+	}
+	int root = arr[0];
+	arr[0] = arr[numElements - 1];
+	numElements--;
+	maxHeapify(0);
+	return root;
+}
+int Heap::left(int i) {
+	return (2*i)+1;
+}
+int Heap::right(int i) {
+	return (2*i)+2;
+}
+int Heap::parent(int i) {
+	return (i-1)/2;
+}
+void Heap::maxHeapify(int i) {
+	int l = left(i);
+	int r = right(i);
+	int max = i;
+	if(l < numElements && arr[l] > arr[i])
+		max = l;
+	if(r < numElements && arr[r] > arr[i])
+		max = r;
+	if(max != i){
+		swap(&arr[i], &arr[max]);
+		maxHeapify(max);
+	}
+}
+void Heap::swap(int *a, int *b){
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
