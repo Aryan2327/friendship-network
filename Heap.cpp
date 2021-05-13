@@ -45,7 +45,7 @@ void Heap::swap(int pos1, int pos2){
 	list[pos2] = temp;
 
 }
-void Heap::increaseKey(int i) {
+void Heap::increaseKey(unsigned int i) {
 	Song & s = getSong(i);
 	s.addListen();
 	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
