@@ -12,9 +12,6 @@ class UserClass {
 
 		UserClass(string n, vector<UserClass> fren_vertex);
 		//stores user attributes << name & friendships
-
-		void setName(string n);
-		//add new user's name
 		
 		string getName();
 		//get user's name
@@ -30,16 +27,27 @@ class UserClass {
 
 	private:
 		//Variables
-		string saved_n;
+		string saved_n; 
 		string rem_user;
 		int g;  
-
+		int vtx_count;
+		int node; //<<
 
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
-		//object user?
 		
-		//vector vector<string> edges;
-		//vector of vector
+		list<int> queue;
+		//BFS queue
+		
+		vector<string> color;
+		//vector of color for BFS
+		
+		vectot<int> distance;
+		//vector of distances for BFS
 
+		/vector<int> parent;
+		//vector of parent nodes for BFS
+
+		
+		
 };

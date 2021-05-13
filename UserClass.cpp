@@ -10,14 +10,9 @@ UserClass::UserClass(){
 }
 
 UserClass::UserClass(string n, fren_vertex){
-
+	saved_n = n;
 }
 		
-void UserClass::setName(string n, vector<UserClass> fren_vertex){
-	saved_n = n;
-
-}
-
 string UserClass::getName(){
 	return saved_n;	
 }
@@ -25,6 +20,7 @@ string UserClass::getName(){
 void UserClass::addFren(string user){
 	user.getName();
 	fren_vertex.push_back(user);
+	int vtx_count++;
 }
 
 void UserClass::remFren(string user){
@@ -36,12 +32,27 @@ void UserClass::remFren(string user){
 	}
 }
 
-void UserClass::BFS(){
+void UserClass::BFS(fren_vertex, node){
 	list<int> queue;
 	
-	bool *visited = new bool[];
-	for(int i = 0; i <; i++)
-		visited[i] = false;
-
+	//for(vertex in graph)
+		distance[node] = 0; //or infinity? 
+		color[node] = "white";
+		parent[node] = NIL;
+	
+	while(queue != NULL){
+		return 0;
+		//Dequeue
+		//for(vertex in graph arry of nodes)
+			//if(vertex: color[*node] == "white"){
+				//vertex color[*node] = "grey";
+				//vertex: distance[*node]+= 1; <<check
+				//vertex: parent[*node] = vertex?
+				//Enqueue
+		//color[node] = black; 
+			
+			}
+	
+	}	
 	
 }
