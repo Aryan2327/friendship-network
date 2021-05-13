@@ -6,6 +6,8 @@
 using namespace std;
 Song::Song(string t) {
 	title = t;
+	listens = 0;
+	heapIndex = -1;
 }
 /*void Song::setTitle(string t){
   title = t;

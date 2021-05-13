@@ -1,14 +1,18 @@
 #include "Heap.h"
 #include "Heap.cpp"
-#include "Song.cpp"
 #include "Song.h"
 int main(int argc, char *argv[]){
 	Heap heap = Heap();
-	for(int i = 1; i < 10; i++){
-		string s = "Song " + i;
-		Song ss = Song(s);
-		heap.insert(ss);
-	}
+	Song s1 = Song("Song 1");
+	Song s2 = Song("Song 2");
+	Song s3 = Song("Song 3");
+	Song s4 = Song("Song 4");
+	Song s5 = Song("Song 5");
+	heap.insert(s1);
+	heap.insert(s2);
+	heap.insert(s3);
+	heap.insert(s4);
+	heap.insert(s5);
 	heap.print();
 	/*heap.increaseKey(4);
 	cout << "increased index 4" << endl;

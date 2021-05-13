@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 Heap::Heap(){
+	numElements = 0;
 }
 int Heap::left(int i) {
 	return (2*i)+1;
@@ -16,13 +17,19 @@ int Heap::parent(int i) {
 void Heap::insert(Song s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
 	s.resetListens();
+	s.setIndex(numElements);
 	list.push_back(s);
+	numElements++;
 	//may have to implement a fix to the heap here
 }
 
 Song Heap::extractMax() {
 	Song temp = list.front();
 	list.erase(list.begin());
+	numElements--;
+	for(Song s : list){
+		s.setIndex(s.getIndex() - 1);
+	}
 	return temp;
 }
 

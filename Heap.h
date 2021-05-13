@@ -16,5 +16,6 @@ public:
 	void print();
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	vector<Song> list;
+	unsigned int numElements;
 };
 #endif //CS_240_HEAP_H
