@@ -14,6 +14,7 @@ int main(int argc, char *argv[]){
 	heap.insert(s4);
 	heap.insert(s5);
 	heap.print();
+	cout << s4.getIndex() << endl;
 	heap.increaseKey(s4.getIndex());
 	cout << s4.getListens() << endl;
 	heap.print();
