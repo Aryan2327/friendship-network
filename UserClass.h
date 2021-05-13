@@ -32,6 +32,7 @@ class UserClass {
 		int g;  
 		int vtx_count;
 		int node; //<<
+		int radius;
 
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
@@ -41,6 +42,7 @@ class UserClass {
 		
 		vector<string> color;
 		//vector of color for BFS
+		//white unfound, grey trasversed, black found
 		
 		vectot<int> distance;
 		//vector of distances for BFS

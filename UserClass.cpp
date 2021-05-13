@@ -9,15 +9,7 @@ UserClass::UserClass(){
 //stores new user information
 }
 
-<<<<<<< HEAD
 UserClass::UserClass(string n, fren_vertex){
-=======
-UserClass::UserClass(string n){
-	saved_n = n;
-}
-		
-void UserClass::setName(string n){
->>>>>>> a72b401390369230064b63a55978278a1e6c1269
 	saved_n = n;
 }
 		
@@ -25,39 +17,37 @@ string UserClass::getName(){
 	return saved_n;	
 }
 
-void UserClass::addFren(UserClass user){
+void UserClass::addFren(string user){
+	user.getName();
 	fren_vertex.push_back(user);
 	int vtx_count++;
 }
 
-void UserClass::remFren(UserClass user){
-	for(int i = 0; i < fren_vertex.size(); i++){
-		if(user.getName() == fren_vertex[i].getName()){
-			fren_vertex.erase(fren_vertex.begin() + i);
-		}
+void UserClass::remFren(string user){
+	rem_user = user.getName();
+	for(int i = 0; i < fren_vertex.size(); i++ ){
+		if(rem_user == fren_vector.at(g))
+		fren_vertex.erase(rem_user);
+
 	}
 }
 
-<<<<<<< HEAD
 void UserClass::BFS(fren_vertex, node){
-=======
-/*
-void UserClass::BFS(){
->>>>>>> a72b401390369230064b63a55978278a1e6c1269
+	int radius = 3;
 	list<int> queue;
 	
 	//for(vertex in graph)
 		distance[node] = 0; //or infinity? 
 		color[node] = "white";
-		parent[node] = NIL;
+		parent[node] = NULL;
 	
 	while(queue != NULL){
 		return 0;
 		//Dequeue
-		//for(vertex in graph arry of nodes)
-			//if(vertex: color[*node] == "white"){
+		//int 
+		//for(int i = fren_vertex.begin(g); i <= radius; i++){				 	//if(vertex: color[*node] == "white"){
 				//vertex color[*node] = "grey";
-				//vertex: distance[*node]+= 1; <<check
+				//vertex: distance[*node]+= 1; 
 				//vertex: parent[*node] = vertex?
 				//Enqueue
 		//color[node] = black; 
@@ -65,6 +55,5 @@ void UserClass::BFS(){
 			}
 	
 	}	
-	
+	//creates a radius within a certain level; return true if found
 }
-*/
