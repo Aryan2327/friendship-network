@@ -12,7 +12,7 @@ UserClass::UserClass(string n, fren_vertex){
 
 }
 		
-void UserClass::setName(string n){
+void UserClass::setName(string n, vector<string> fren_vertex){
 	saved_n = n;
 
 }

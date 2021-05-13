@@ -9,7 +9,7 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n, fren_vertex);
+		UserClass(string n, vector<string> fren_vertex);
 		//stores user attributes << name & friendships
 
 		void setName(string n);
