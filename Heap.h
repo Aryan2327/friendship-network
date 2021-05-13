@@ -12,7 +12,7 @@ public:
 	Song extractMax();
 	void insert(Song);
 	void swap(int, int);
-	void increaseKey(Song);	//may need to add another parameter for new value if needed, for now adds 1
+	void increaseKey(int i);	//may need to add another parameter for new value if needed, for now adds 1
 	void print();
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	vector<Song> list;

@@ -39,13 +39,12 @@ void Heap::swap(int pos1, int pos2){
 	list[pos2] = temp;
 
 }
-void Heap::increaseKey(Song s) {
-	list[s.getIndex()].addListen();
-	unsigned int temp;
-	while(s.getIndex() != 0 && list[parent(s.getIndex())].getListens() < s.getListens()){
-		temp = s.getIndex();
+void Heap::increaseKey(int i) {
+	list[i].addListen();
+	while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
+		int temp = i;
 		swap(temp, parent(temp));
-		s.setIndex(parent(temp));
+		list[temp].setIndex(parent(temp));
 		list[parent(temp)].setIndex(temp);
 	}
 }
