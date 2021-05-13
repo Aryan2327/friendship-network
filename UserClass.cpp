@@ -34,3 +34,13 @@ void UserClass::remFren(string user){
 
 	}
 }
+
+void UserClass::BFS(){
+	list<int> queue;
+	
+	bool *visited = new bool[];
+	for(int i = 0; i <; i++)
+		visited[i] = false;
+
+	
+}
