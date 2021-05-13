@@ -40,7 +40,7 @@ void Heap::swap(int pos1, int pos2){
 
 }
 void Heap::increaseKey(int i) {
-	list[i].addListen();
+	getSong(i).addListen();
 	cout << list[i].getTitle() << " " << list[i].getListens() << endl;
 	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
 		int temp = i;
@@ -55,4 +55,7 @@ void Heap::print() {
 			 << "Index: " << s.getIndex() << endl
 			 << "Listens: " << s.getListens() << endl << endl;
 	}
+}
+Song & Heap::getSong(int i) {
+	return list[i];
 }
