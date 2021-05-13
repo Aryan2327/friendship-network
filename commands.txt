@@ -1,4 +1,27 @@
 
-add song a
 add song b
+add song a
+add song d
+add song e
+add song c
+
+add user paul
+add user mike
+
+show songs
+
+remove b
+remove c
+remove a
+remove d
+remove e
+
+add song a 
+add song b
+add song c
+
+remove b
+
+
+
 exit

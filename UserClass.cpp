@@ -9,11 +9,11 @@ UserClass::UserClass(){
 //stores new user information
 }
 
-UserClass::UserClass(string n, fren_vertex){
-
+UserClass::UserClass(string n){
+	saved_n = n;
 }
 		
-void UserClass::setName(string n, vector<UserClass> fren_vertex){
+void UserClass::setName(string n){
 	saved_n = n;
 
 }
@@ -22,20 +22,19 @@ string UserClass::getName(){
 	return saved_n;	
 }
 
-void UserClass::addFren(string user){
-	user.getName();
+void UserClass::addFren(UserClass user){
 	fren_vertex.push_back(user);
 }
 
-void UserClass::remFren(string user){
-	rem_user = user.getName();
-	for(int i = 0; i < fren_vertex.size(); i++ ){
-		if(rem_user == fren_vector.at(g))
-		fren_vertex.erase(rem_user);
-
+void UserClass::remFren(UserClass user){
+	for(int i = 0; i < fren_vertex.size(); i++){
+		if(user.getName() == fren_vertex[i].getName()){
+			fren_vertex.erase(fren_vertex.begin() + i);
+		}
 	}
 }
 
+/*
 void UserClass::BFS(){
 	list<int> queue;
 	
@@ -45,3 +44,4 @@ void UserClass::BFS(){
 
 	
 }
+*/
