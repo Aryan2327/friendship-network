@@ -1,5 +1,6 @@
 #ifndef CS_240_HEAP_H
 #define CS_240_HEAP_H	//might have to change to HEAP_H
+#include <vector>
 using namespace std;
 class Heap{
 public:
@@ -8,11 +9,13 @@ public:
 	int left(int);
 	int right(int);
 	int extractMax();
+	int extractMaxVector();
 	void maxHeapify(int);
 	void insert(int);
 	void swap(int, int);
 	void increaseKey(int, int);
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
+	vector<int> list;
 	int *arr; // pointer to array of elements in heap
 	int capacity; // maximum possible size of heap
 	int numElements; // Current number of elements in heap

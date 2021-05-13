@@ -5,6 +5,7 @@ Heap::Heap(int cap){
 	capacity = cap;
 	numElements = 0;
 	arr = new int[cap];
+	list = new vector<int>{};
 }
 int Heap::left(int i) {
 	return (2*i)+1;
@@ -23,6 +24,7 @@ void Heap::insert(int key) {
 	int i = numElements;		//inserts key at the end
 	numElements++;
 	arr[i] = key;
+	list.push_back(key);
 	//may have to implement a fix to the heap here
 }
 int Heap::extractMax() {
@@ -39,6 +41,11 @@ int Heap::extractMax() {
 	maxHeapify(0);
 	return root;
 }
+int Heap::extractMaxVector() {
+	int temp = list.front();
+	list.erase(list.begin());
+	return temp;
+}
 void Heap::maxHeapify(int i) {
 	int l = left(i);
 	int r = right(i);
@@ -54,13 +61,23 @@ void Heap::maxHeapify(int i) {
 }
 void Heap::swap(int pos1, int pos2){
 	int temp = arr[pos1];
-	pos1 = pos2;
-	pos2 = temp;
+	arr[pos1] = arr[pos2];
+	arr[pos2] = temp;
+	temp = list[pos1];
+	list[pos1] = list[pos2];
+	list[pos2] = temp;
+
 }
 void Heap::increaseKey(int i) {
+	int j = i;
 	arr[i] = arr[i] + 1;
+	list[i] = list[i] + 1;
 	while(i != 0 && arr[parent(i)] < arr[i]){
 		swap(i, parent(i));
 		i = parent(i);
+	}
+	while(j != 0 && list[parent(j)] < list[j]){
+		swap(j, parent(j));
+		j = parent(j);
 	}
 }
