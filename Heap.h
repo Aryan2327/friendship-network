@@ -10,7 +10,8 @@ public:
 	int extractMax();
 	void maxHeapify(int);
 	void insert(int);
-	void swap(int*, int*)
+	void swap(int, int);
+	void increaseKey(int, int);
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	int *arr; // pointer to array of elements in heap
 	int capacity; // maximum possible size of heap

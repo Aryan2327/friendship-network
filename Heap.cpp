@@ -6,6 +6,15 @@ Heap::Heap(int cap){
 	numElements = 0;
 	arr = new int[cap];
 }
+int Heap::left(int i) {
+	return (2*i)+1;
+}
+int Heap::right(int i) {
+	return (2*i)+2;
+}
+int Heap::parent(int i) {
+	return (i-1)/2;
+}
 void Heap::insert(int key) {
 	if(numElements == capacity){
 		cout << "Overflow Error in insert()\n";
@@ -30,15 +39,6 @@ int Heap::extractMax() {
 	maxHeapify(0);
 	return root;
 }
-int Heap::left(int i) {
-	return (2*i)+1;
-}
-int Heap::right(int i) {
-	return (2*i)+2;
-}
-int Heap::parent(int i) {
-	return (i-1)/2;
-}
 void Heap::maxHeapify(int i) {
 	int l = left(i);
 	int r = right(i);
@@ -52,8 +52,15 @@ void Heap::maxHeapify(int i) {
 		maxHeapify(max);
 	}
 }
-void Heap::swap(int *a, int *b){
-	int temp = *a;
-	*a = *b;
-	*b = temp;
+void Heap::swap(int pos1, int pos2){
+	int temp = arr[pos1];
+	pos1 = pos2;
+	pos2 = temp;
+}
+void Heap::increaseKey(int i) {
+	arr[i] = arr[i] + 1;
+	while(i != 0 && arr[parent(i)] < arr[i]){
+		swap(i, parent(i));
+		i = parent(i);
+	}
 }
