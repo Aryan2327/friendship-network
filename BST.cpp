@@ -32,7 +32,7 @@ void BST<T>::insertHelper(T key, Node*& node){
 
 template <typename T>
 void BST<T>::print(){
-    print(root);
+    if (root != nullptr) print(root);
 }
 
 template <typename T>
@@ -108,25 +108,52 @@ bool BST<T>::remove(T key, Node*& node, Node*& parent_node){
         else{
             if (node->left != nullptr || node->right != nullptr){
                 // Case: One child is non null
-                if (parent_node->left == node){
-                    parent_node->left = (node->left != nullptr)? node->left: node->right;
-                } 
-                else{
-                    parent_node->right = (node->left != nullptr)? node->left: node->right;
+                if (node != root){
+                    auto leftchild = node->left;
+                    auto rightchild = node->right;
+                    node->left = nullptr;
+                    node->right = nullptr;
+                    //std::cout << leftchild << rightchild << std::endl;
+                    if (parent_node->left == node){
+                        delete parent_node->left;
+                        parent_node->left = (leftchild != nullptr)? leftchild: rightchild;
+                    } 
+                    else{
+                        delete parent_node->right;
+                        parent_node->right = (rightchild != nullptr)? rightchild: leftchild;
+                    }
+                    //node = nullptr;
+                    //leftchild = rightchild = nullptr;
+
                 }
-                delete(node);
-                node = nullptr;
+                else{
+                    //std::cout << node->key.getName() << node << std::endl;
+                    auto child = (node->left != nullptr)? node->left: node->right;
+                    //std::cout << child << std::endl;
+                    node->left = nullptr;
+                    node->right = nullptr;
+                    delete(node);
+                    node = child;
+                    child = nullptr;
+                }
 
             }
             else{
                 // Case: Both children are null
-                if (parent_node->left == node) parent_node->left = nullptr;
-                else{
-                    parent_node->right = nullptr;
+                if (node != root){
+                    if (parent_node->left == node){
+                        delete(node);
+                        parent_node->left = nullptr;
+                    } 
+                    else{
+                        delete(node);
+                        parent_node->right = nullptr;
+                    }
                 }
-                delete(node);
+                else{
+                    delete(node);
+                }
                 node = nullptr;
-
             }
         }
         return true;
@@ -144,6 +171,7 @@ bool BST<T>::remove(T key, Node*& node, Node*& parent_node){
 
 template <typename T>
 BST<T>::Node::~Node(){
+    //std::cout << "destructor " << key.getName() << std::endl;
     if (left != nullptr) delete left;
     if (right != nullptr) delete right;
 }

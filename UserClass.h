@@ -10,16 +10,16 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n, vector<UserClass> fren_vertex);
+		UserClass(string n);
 		//stores user attributes << name & friendships
 		
 		string getName();
 		//get user's name
 
-		void addFren(string user);
+		void addFren(UserClass user);
 		//add user to friends vector 
 
-		void remFren(string user);
+		void remFren(UserClass user);
 		//remove user vertex from friends vector 
 		
 		void BFS();

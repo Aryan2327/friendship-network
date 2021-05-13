@@ -11,13 +11,13 @@
 
 int main(int argc, char *argv[]){
    std::string input;
-   BST<Users> users;
+   BST<UserClass> users;
    BST<Song> library;
    BST<Song> system;
+   std::cout << "['add' 'befriend' 'unfriend' 'listen' 'remove' 'show']" << std::endl;
    while (input != "exit"){
 	   getline(std::cin, input);
 	   Parser command(input);
-	   std::cout << "['add' 'befriend' 'unfriend' 'listen' 'remove' 'show']" << std::endl;
 
 	   if (command.getOperation() == "add"){
 		   if (command.getArg1() == "song"){
@@ -64,6 +64,10 @@ int main(int argc, char *argv[]){
 
 	   else if (command.getOperation() == "remove"){
 		   // Remove song from primary library and set the song listens in the heap to 0
+		   Song song(command.getArg1());
+		   system.remove(song);
+		   system.print();
+
 
 	   }
 
