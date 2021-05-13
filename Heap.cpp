@@ -24,27 +24,24 @@ void Heap::insert(Song s) {	//no key parameter since all values start at 0
 }
 
 Song Heap::extractMax() {
-	Song & temp = getSong(0);
+	Song temp = list.front();
 	list.erase(list.begin());
 	numElements--;
-	for(int i = 0; i < numElements; i++){
-		Song & temp1 = getSong(i);
-		temp1.setIndex(temp1.getIndex() - 1);
+	for(Song s : list){
+		s.setIndex(s.getIndex() - 1);
 	}
 	return temp;
 }
 
 void Heap::swap(int pos1, int pos2){
-	Song & s1 = getSong(pos1);
-	Song & s2 = getSong(pos2);
-	Song & temp = getSong(pos1);
-	s1 = s2;
-	s2 = temp;
+	Song temp = list[pos1];
+	list[pos1] = list[pos2];
+	list[pos2] = temp;
+
 }
 void Heap::increaseKey(int i) {
-	Song & s = getSong(i);
-	s.addListen();
-	cout << s.getTitle() << " " << s.getListens() << endl;
+	getSong(i);
+	cout << list[i].getTitle() << " " << list[i].getListens() << endl;
 	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
