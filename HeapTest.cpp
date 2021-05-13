@@ -8,10 +8,10 @@ int main(int argc, char *argv[]){
 	Song s3 = Song("Song 3");
 	Song s4 = Song("Song 4");
 	Song s5 = Song("Song 5");
-	heap.insert(s1.getIndex());
-	heap.insert(s2.getIndex());
-	heap.insert(s3.getIndex());
-	heap.insert(s4.getIndex());
+	heap.insert(s1);
+	heap.insert(s2);
+	heap.insert(s3);
+	heap.insert(s4);
 	s5.addListen();
 	cout << s5.getListens() << endl;
 	heap.insert(s5);
