@@ -1,12 +1,12 @@
 #include "Heap.h"
 #include "Heap.cpp"
 int main(int argc, char *argv[]){
-	Heap heap = Heap(5);
-	heap.insert(0);
-	heap.insert(0);
-	heap.insert(0);
-	heap.insert(0);
-	heap.insert(0);
+	Heap heap = Heap();
+	heap.insert();
+	heap.insert();
+	heap.insert();
+	heap.insert();
+	heap.insert();
 	heap.print();
 	heap.increaseKey(4);
 	cout << "increased index 4" << endl;

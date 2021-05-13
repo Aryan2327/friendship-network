@@ -30,9 +30,10 @@ void Heap::swap(int pos1, int pos2){
 
 }
 void Heap::increaseKey(int i) {
+	list[i] += 1;
 	while(i != 0 && list[parent(i)] < list[i]){
 		swap(i, parent(i));
-		i = parent(i);
+		i = parent(j);
 	}
 }
 void Heap::print() {
