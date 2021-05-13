@@ -34,10 +34,6 @@ Song Heap::extractMax() {
 	}
 	return temp;
 }
-/*Song Heap::testEM() {
-	Song & temp = getSong(0);
-
-}*/
 
 void Heap::swap(int pos1, int pos2){
 	Song temp = list[pos1];

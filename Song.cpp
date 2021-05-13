@@ -16,7 +16,7 @@ string Song::getTitle(){
   return title;
 }
 void Song::addListen(){
-	listens = listens + 1;
+	listens++;
 }
 void Song::resetListens(){
 	listens = 0;
