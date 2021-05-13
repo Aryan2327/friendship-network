@@ -14,10 +14,8 @@ int main(int argc, char *argv[]){
 	heap.insert(s4);
 	heap.insert(s5);
 	heap.print();
-	cout << heap.extractMax().getTitle() << " " <<
-	heap.extractMax().getIndex() << " " <<
-	heap.extractMax().getListens()
-	<< endl;
+	Song test = heap.extractMax();
+	cout << test.getTitle() << " " << test.getIndex() << " " << test.getListens() << endl;
 	heap.print();
 	/*heap.increaseKey(4);
 	cout << "increased index 4" << endl;

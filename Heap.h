@@ -10,6 +10,7 @@ public:
 	int left(int);
 	int right(int);
 	Song extractMax();
+	//Song testEM();
 	void insert(Song);
 	void swap(int, int);
 	void increaseKey(int);	//may need to add another parameter for new value if needed, for now adds 1

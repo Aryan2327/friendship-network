@@ -26,12 +26,17 @@ void Heap::insert(Song s) {	//no key parameter since all values start at 0
 Song Heap::extractMax() {
 	Song temp = list.front();
 	list.erase(list.begin());
+	print();
 	numElements--;
 	for(Song s : list){
 		s.setIndex(s.getIndex() - 1);
 	}
 	return temp;
 }
+/*Song Heap::testEM() {
+	Song & temp = getSong(0);
+
+}*/
 
 void Heap::swap(int pos1, int pos2){
 	Song temp = list[pos1];
