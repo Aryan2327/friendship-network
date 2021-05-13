@@ -12,6 +12,7 @@ public:
   	void addListen();
   	void resetListens();
   	unsigned int getListens();
+  	void setListens(unsigned int);
   	void setIndex(unsigned int);
   	unsigned int getIndex();
 private:
