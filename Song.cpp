@@ -4,10 +4,12 @@
 #include <cctype>
 
 using namespace std;
-
-void Song::setTitle(string t){
-  title = t;
+Song::Song(string t) {
+	title = t;
 }
+/*void Song::setTitle(string t){
+  title = t;
+}*/
 string Song::getTitle(){
   return title;
 }

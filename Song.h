@@ -6,7 +6,8 @@
 using namespace std;
 class Song{ 
 public:
-  	void setTitle(string);
+	Song(string);
+  	//void setTitle(string);
   	string getTitle();
   	void addListen();
   	void resetListens();
