@@ -11,7 +11,7 @@ public:
 	int right(int);
 	Song extractMax();
 	//Song testEM();
-	void insert(Song);
+	void insert(Song&);
 	void swap(int, int);
 	void increaseKey(unsigned int);	//may need to add another parameter for new value if needed, for now adds 1
 	void print();

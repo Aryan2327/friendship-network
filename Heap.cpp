@@ -52,7 +52,7 @@ void Heap::increaseKey(unsigned int i) {
 	}*/
 }
 void Heap::print() {
-	for(Song s : list) {
+	for(Song &s : list) {
 		cout << "Title: " << s.getTitle() << endl
 			 << "Index: " << s.getIndex() << endl
 			 << "Listens: " << s.getListens() << endl << endl;
