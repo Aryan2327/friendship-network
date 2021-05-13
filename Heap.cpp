@@ -28,8 +28,9 @@ Song Heap::extractMax() {
 	list.erase(list.begin());
 	print();
 	numElements--;
-	for(Song s : list){
-		s.setIndex(s.getIndex() - 1);
+	for(int i = 0; i < numElements; i++){
+		Song & temp1 = getSong(i);
+		temp1.setIndex(temp1.getIndex() - 1);
 	}
 	return temp;
 }
