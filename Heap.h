@@ -17,7 +17,7 @@ public:
 	void print();
 	Song & getSong(int);
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
-	vector<Song> list;
+	vector<&Song> list;
 	unsigned int numElements;
 };
 #endif //CS_240_HEAP_H

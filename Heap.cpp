@@ -43,7 +43,7 @@ void Heap::swap(int pos1, int pos2){
 }
 void Heap::increaseKey(unsigned int i) {
 	Song & s = getSong(i);
-	s.setListens(s.getListens() + 1);
+	s.addListen();
 	cout << s.getListens()<<endl;
 	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
 		int temp = i;
