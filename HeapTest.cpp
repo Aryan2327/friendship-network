@@ -13,12 +13,10 @@ int main(int argc, char *argv[]){
 	heap.insert(s3);
 	heap.insert(s4);
 	s5.addListen();
+	cout << s5.getListens() << endl;
 	heap.insert(s5);
 	heap.print();
 	heap.increaseKey(s4);
-	heap.print();
-	heap.increaseKey(s4);
-	heap.increaseKey(s3);
 	heap.print();
 	/*heap.increaseKey(4);
 	cout << "increased index 4" << endl;
