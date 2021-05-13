@@ -4,14 +4,12 @@
 using namespace std;
 class Heap{
 public:
-	Heap(int);
+	Heap();
 	int parent(int);
 	int left(int);
 	int right(int);
 	int extractMax();
-	int extractMaxVector();
-	void maxHeapify(int);
-	void insert(int);
+	void insert();
 	void swap(int, int);
 	void increaseKey(int);	//may need to add another parameter for new value if needed, for now adds 1
 	void print();
