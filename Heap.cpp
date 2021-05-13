@@ -81,3 +81,15 @@ void Heap::increaseKey(int i) {
 		j = parent(j);
 	}
 }
+void Heap::print() {
+	cout << "Array:\n";
+	for(int i = 0; i < numElements; i++){
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+	cout << "Vector:\n";
+	for(int i : list){
+		cout << i << " ";
+	}
+	cout << endl;
+}
