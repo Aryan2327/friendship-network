@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 #include "UserClass.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ UserClass::UserClass(string n, fren_vertex){
 
 }
 		
-void UserClass::setName(string n, vector<string> fren_vertex){
+void UserClass::setName(string n, vector<UserClass> fren_vertex){
 	saved_n = n;
 
 }
