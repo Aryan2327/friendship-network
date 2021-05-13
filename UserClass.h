@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n, fren_vertex);
+		UserClass(string n, vector<UserClass> fren_vertex);
 		//stores user attributes << name & friendships
 
 		void setName(string n);
@@ -23,8 +24,10 @@ class UserClass {
 
 		void remFren(string user);
 		//remove user vertex from friends vector 
+		
+		void BFS();
+		//Breadth First Search
 
-	
 	private:
 		//Variables
 		string saved_n;
@@ -32,8 +35,11 @@ class UserClass {
 		int g;  
 
 
-		vector<string> fren_vertex;
+		vector<UserClass> fren_vertex;
 		//vector of friend vertices
-
+		//object user?
+		
+		//vector vector<string> edges;
+		//vector of vector
 
 };

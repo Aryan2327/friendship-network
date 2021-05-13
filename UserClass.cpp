@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 #include "UserClass.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ UserClass::UserClass(string n, fren_vertex){
 
 }
 		
-void UserClass::setName(string n){
+void UserClass::setName(string n, vector<UserClass> fren_vertex){
 	saved_n = n;
 
 }
@@ -33,4 +34,14 @@ void UserClass::remFren(string user){
 		fren_vertex.erase(rem_user);
 
 	}
+}
+
+void UserClass::BFS(){
+	list<int> queue;
+	
+	bool *visited = new bool[];
+	for(int i = 0; i <; i++)
+		visited[i] = false;
+
+	
 }
