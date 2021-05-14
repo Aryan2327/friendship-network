@@ -58,6 +58,3 @@ void Heap::print() {
 			 << "Listens: " << s->getListens() << endl << endl;
 	}
 }
-Song & Heap::getSong(int i) {
-	return list[i];
-}
