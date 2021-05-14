@@ -5,6 +5,8 @@
 
 using namespace std;
 
+Song::Song() {}
+
 Song::Song(string t) {
 	title = t;
 	listens = 0;

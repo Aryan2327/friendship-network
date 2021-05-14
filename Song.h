@@ -6,6 +6,7 @@
 using namespace std;
 class Song{ 
 public:
+	Song();
 	Song(string);
 	Song(const Song &);
 	void operator=(const Song&);

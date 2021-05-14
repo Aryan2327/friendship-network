@@ -11,7 +11,7 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n, vector<UserClass> fren_vertex);
+		UserClass(string n);
 		//stores user attributes << name & friendships
 		
 		string getName();
