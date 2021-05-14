@@ -44,23 +44,16 @@ void UserClass::BFS(vector<UserClass> fren_vertex, int node){
 	list<int> queue;
 	queue.push_back(node);
 	visited[node] = true;
-	//distance[node] = 0; 
-	//parent[node] = NULL;
-	
-	
+		
 	while(!queue.empty()){
 		int front_node = queue.front();
 		queue.pop_front();
-		for(auto i = fren_vertex[front_node].begin(); i <= radius; i++){ //<<
+		for(auto i = fren_vertex[front_node].begin(); i <= radius; i++){ //<<auto
 			if(visited[*i] == false){
 				visited[*i] = true;
-				distance[*i] = distance[front_node]+ 1; 
-				parent[*i] = front_node;
-
+				queue.push_back(*i);
 			}
-		visited[front_node] = true;
-	
+		//visited[front_node] = true;
 		}
 	}	
-	//creates a radius within a certain level; return true if found
 }

@@ -24,7 +24,7 @@ class UserClass {
 		//remove user vertex from friends vector 
 		
 		void BFS(vector<UserClass> fren_vertex, int node);
-		//Breadth First Search
+		//Breadth First Search creates a radius within a 3 levels
 
 	private:
 		//Variables
@@ -36,8 +36,6 @@ class UserClass {
 
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
-		
-		list<int> 
 
 		bool* visited;
 		//ptr to a boolean of visited vertices
