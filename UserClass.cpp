@@ -22,7 +22,7 @@ string UserClass::getName(){
 void UserClass::addFren(UserClass user){
 	user.getName();
 	fren_vertex.push_back(user);
-	int vtx_count++;
+	int vtx_count+= 1;
 }
 
 void UserClass::remFren(UserClass user){
