@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <list>
 
 using namespace std;
 
@@ -10,11 +11,8 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n);
+		UserClass(string n, vector<UserClass> fren_vertex);
 		//stores user attributes << name & friendships
-
-		void setName(string n);
-		//add new user's name
 		
 		string getName();
 		//get user's name
@@ -25,21 +23,32 @@ class UserClass {
 		void remFren(UserClass user);
 		//remove user vertex from friends vector 
 		
-		void BFS();
-		//Breadth First Search
+		void BFS(vector<UserClass> fren_vertex, int node);
+		//Breadth First Search creates a radius within a 3 levels
 
 	private:
 		//Variables
-		string saved_n;
+		string saved_n; 
 		string rem_user;
-		int g;  
-
+		int vtx_count;
+		int node;
+		int radius;
 
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
-		//object user?
-		
-		//vector vector<string> edges;
-		//vector of vector
 
+		bool* visited;
+		//ptr to a boolean of visited vertices
+
+		list<int> queue;
+		//BFS queue	
+			
+		vector<int> distance;
+		//vector of distances for BFS
+
+		vector<int> parent;
+		//vector of parent nodes for BFS
+
+		
+		
 };
