@@ -22,19 +22,19 @@ string UserClass::getName(){
 void UserClass::addFren(UserClass user){
 	user.getName();
 	fren_vertex.push_back(user);
-	int vtx_count+= 1;
+	int vtx_count = 1++;
 }
 
 void UserClass::remFren(UserClass user){
 	rem_user = user.getName();
 	for(int i = 0; i < fren_vertex.size(); i++ ){
-		if(rem_user == fren_vector.at(g))
-		fren_vertex.erase(rem_user);
+		if(rem_user == fren_vertex.at(g))
+			fren_vertex.erase(rem_user);
 
 	}
 }
 
-void UserClass::BFS( vector<UserClass> fren_vertex, node){
+void UserClass::BFS( vector<UserClass> fren_vertex, int node){
 	int radius = 3;	
 
 	visited = new bool[vtx_count];
@@ -44,14 +44,14 @@ void UserClass::BFS( vector<UserClass> fren_vertex, node){
 	list<int> queue;
 	queue.push(node);
 	visited[node] = true;
-	distance[node] = 0; 
-	parent[node] = NULL;
+	//distance[node] = 0; 
+	//parent[node] = NULL;
 	
 	
 	while(!queue.empty()){
 		int front_node = queue.front();
 		queue.pop();
-		for(int i = fren_vertex.begin(front_node); i <= radius; i++){
+		for(auto i = fren_vertex[front_node].begin(); i <= radius; i++){
 			if(visited[*i] == false){
 				visited[*i] = true;
 				distance[*i] = distance[front_node]+ 1; 
