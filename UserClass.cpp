@@ -11,7 +11,7 @@ UserClass::UserClass(){
 //stores new user information
 }
 
-UserClass::UserClass(string n, fren_vertex){
+UserClass::UserClass(string n, vector<UserClass> fren_vertex){
 	saved_n = n;
 }
 		
@@ -19,13 +19,13 @@ string UserClass::getName(){
 	return saved_n;	
 }
 
-void UserClass::addFren(string user){
+void UserClass::addFren(UserClass user){
 	user.getName();
 	fren_vertex.push_back(user);
 	int vtx_count++;
 }
 
-void UserClass::remFren(string user){
+void UserClass::remFren(UserClass user){
 	rem_user = user.getName();
 	for(int i = 0; i < fren_vertex.size(); i++ ){
 		if(rem_user == fren_vector.at(g))
@@ -34,7 +34,7 @@ void UserClass::remFren(string user){
 	}
 }
 
-void UserClass::BFS(fren_vertex, node){
+void UserClass::BFS( vector<UserClass> fren_vertex, node){
 	int radius = 3;	
 
 	visited = new bool[vtx_count];
@@ -61,7 +61,6 @@ void UserClass::BFS(fren_vertex, node){
 		visited[front_node] = true;
 	
 		}
-	
 	}	
 	//creates a radius within a certain level; return true if found
 }
