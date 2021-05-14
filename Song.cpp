@@ -14,7 +14,7 @@ Song::Song(const Song & s) {
 	listens = s.listens;
 	heapIndex = s.heapIndex;
 }
-Song::operator=(const Song& s){
+void Song::operator=(const Song& s){
 	title = s.title;
 	listens = s.listens;
 	heapIndex = s.heapIndex;
