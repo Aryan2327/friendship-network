@@ -18,14 +18,13 @@ run: $(EXECUTABLE)
 	./$(EXECUTABLE) < commands.txt
 
 memcheck: $(EXECUTABLE)
-	valgrind ./$(EXECUTABLE) $(inputdir) $(workdir)
+	valgrind ./$(EXECUTABLE) < commands.txt
 
-Main:	Main.o
-		g++ Main.o -o Main
+Main:	Main.o Song.o UserClass.o
+		g++ Main.o Song.o UserClass.o -o Main
 
 Main.o:	Main.cpp
 		g++ -c Main.cpp
-
 
 ## test for heap, use with make HeapTest, ./HeapTest
 ##feel free to adjust HeapTest.cpp with any other tests you want
@@ -34,3 +33,12 @@ HeapTest: HeapTest.o
 
 HeapTest.o:	HeapTest.cpp Heap.cpp Song.cpp
 		g++ -c HeapTest.cpp Heap.cpp Song.cpp
+
+Song.o: Song.cpp
+		g++ -c Song.cpp
+
+UserClass.o:	UserClass.cpp
+		g++ -c UserClass.cpp
+
+clean:
+	rm -f *.o $(EXECUTABLE)

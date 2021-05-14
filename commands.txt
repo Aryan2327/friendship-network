@@ -1,1 +1,17 @@
+
+add song b
+add song a
+add song d
+add song e
+add song c
+
+add user paul
+add user mike
+
+show songs
+
+
+
+
+
 exit
