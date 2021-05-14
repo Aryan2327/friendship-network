@@ -48,8 +48,8 @@ void Heap::increaseKey(unsigned int i) {
 		int temp = i;
 		swap(temp, parent(temp));
 		i = parent(i);
-		//list[temp].setIndex(parent(temp));
-		//list[parent(temp)].setIndex(temp);
+		list[temp]->setIndex(parent(temp));
+		list[parent(temp)]->setIndex(temp);
 	}
 }
 void Heap::print() {
