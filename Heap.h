@@ -9,7 +9,7 @@ public:
 	int parent(int);
 	int left(int);
 	int right(int);
-	Song extractMax();
+	Song* extractMax();
 	//Song testEM();
 	void insert(Song*);
 	void swap(int, int);

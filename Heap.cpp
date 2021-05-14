@@ -23,7 +23,7 @@ void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement a fix to the heap here
 }
 
-Song Heap::extractMax() {
+Song* Heap::extractMax() {
 	Song * temp = list.front();
 	list.erase(list.begin());
 	print();
