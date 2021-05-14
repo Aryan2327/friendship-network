@@ -9,6 +9,11 @@ Song::Song(string t) {
 	listens = 0;
 	heapIndex = -1;
 }
+Song::Song(const Song & s) {
+	title = s.title;
+	listens = s.listens;
+	heapIndex = s.heapIndex;
+}
 /*void Song::setTitle(string t){
   title = t;
 }*/
