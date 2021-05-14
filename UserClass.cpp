@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <list>
+
 #include "UserClass.h"
 
 using namespace std;
@@ -33,26 +35,32 @@ void UserClass::remFren(string user){
 }
 
 void UserClass::BFS(fren_vertex, node){
-	int radius = 3;
+	int radius = 3;	
+
+	visited = new bool[vtx_count];
+	for(int i = 0; i < vtx_count; i++)
+		visited[i] = false; 		
+
 	list<int> queue;
+	queue.push(node);
+	visited[node] = true;
+	distance[node] = 0; 
+	parent[node] = NULL;
 	
-	//for(vertex in graph)
-		distance[node] = 0; //or infinity? 
-		color[node] = "white";
-		parent[node] = NULL;
 	
-	while(queue != NULL){
-		return 0;
-		//Dequeue
-		//int 
-		//for(int i = fren_vertex.begin(g); i <= radius; i++){				 	//if(vertex: color[*node] == "white"){
-				//vertex color[*node] = "grey";
-				//vertex: distance[*node]+= 1; 
-				//vertex: parent[*node] = vertex?
-				//Enqueue
-		//color[node] = black; 
-			
+	while(!queue.empty()){
+		int front_node = queue.front();
+		queue.pop();
+		for(int i = fren_vertex.begin(front_node); i <= radius; i++){
+			if(visited[*i] == false){
+				visited[*i] = true;
+				distance[*i] = distance[front_node]+ 1; 
+				parent[*i] = front_node;
+
 			}
+		visited[front_node] = true;
+	
+		}
 	
 	}	
 	//creates a radius within a certain level; return true if found

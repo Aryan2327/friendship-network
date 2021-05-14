@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <list>
 
 using namespace std;
 
@@ -29,10 +30,13 @@ class UserClass {
 		//Variables
 		string saved_n; 
 		string rem_user;
-		int g;  
 		int vtx_count;
-		int node; //<<
+		int g;
+		int node;
 		int radius;
+
+		bool* visited;
+		//ptr to a boolean of visited vertices
 
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
@@ -40,14 +44,11 @@ class UserClass {
 		list<int> queue;
 		//BFS queue
 		
-		vector<string> color;
-		//vector of color for BFS
-		//white unfound, grey trasversed, black found
-		
-		vectot<int> distance;
+			
+		vector<int> distance;
 		//vector of distances for BFS
 
-		/vector<int> parent;
+		vector<int> parent;
 		//vector of parent nodes for BFS
 
 		
