@@ -11,7 +11,7 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n, vector<UserClass> fren_vertex);
+		UserClass(string n);
 		//stores user attributes << name & friendships
 		
 		string getName();
@@ -37,7 +37,7 @@ class UserClass {
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
 
-		bool* visited;
+		bool* visited;//<<bool
 		//ptr to a boolean of visited vertices
 
 		list<int> queue;

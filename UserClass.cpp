@@ -11,7 +11,7 @@ UserClass::UserClass(){
 //stores new user information
 }
 
-UserClass::UserClass(string n, vector<UserClass> fren_vertex){
+UserClass::UserClass(string n){
 	saved_n = n;
 }
 		
