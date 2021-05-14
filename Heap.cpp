@@ -16,9 +16,9 @@ int Heap::parent(int i) {
 }
 void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
-	&s.resetListens();
-	&s.setIndex(numElements);
-	list.push_back(&s);
+	s.resetListens();
+	s.setIndex(numElements);
+	list.push_back(s);
 	numElements++;
 	//may have to implement a fix to the heap here
 }
