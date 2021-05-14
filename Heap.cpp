@@ -36,9 +36,9 @@ Song* Heap::extractMax() {
 }
 
 void Heap::swap(int pos1, int pos2){
-	Song & temp = getSong(pos1);
-	getSong(pos1) = getSong(pos2);
-	getSong(pos2) = temp;
+	Song* temp = list[pos1];
+	list[pos1] = list[pos2];
+	list[pos2] = temp;
 
 }
 void Heap::increaseKey(unsigned int i) {
