@@ -10,7 +10,7 @@ public:
 	Song(const Song &);
 	void operator=(const Song&);
   	//void setTitle(string);
-  	string getTitle();
+  	string getName();
   	void addListen();
   	void resetListens();
   	unsigned int getListens();

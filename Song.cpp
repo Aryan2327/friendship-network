@@ -23,7 +23,7 @@ void Song::operator=(const Song& s){
 /*void Song::setTitle(string t){
   title = t;
 }*/
-string Song::getTitle(){
+string Song::getName(){
   return title;
 }
 void Song::addListen(){
