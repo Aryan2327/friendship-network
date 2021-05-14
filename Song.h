@@ -8,6 +8,7 @@ class Song{
 public:
 	Song(string);
 	Song(const Song &);
+	&Song operator = (const Song&);
   	//void setTitle(string);
   	string getTitle();
   	void addListen();
