@@ -14,6 +14,11 @@ Song::Song(const Song & s) {
 	listens = s.listens;
 	heapIndex = s.heapIndex;
 }
+Song::Song operator=(const Song& s){
+	title = s.title;
+	listens = s.listens;
+	heapIndex = s.heapIndex;
+}
 /*void Song::setTitle(string t){
   title = t;
 }*/
