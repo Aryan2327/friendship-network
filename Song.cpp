@@ -14,12 +14,6 @@ Song::Song(const Song & s) {
 	listens = s.listens;
 	heapIndex = s.heapIndex;
 }
-Song &Song::operator = (const Song& other){
-	title = other.title;
-	listens = other.listens;
-	heapIndex = other.heapIndex;
-	return *this;
-}
 /*void Song::setTitle(string t){
   title = t;
 }*/
