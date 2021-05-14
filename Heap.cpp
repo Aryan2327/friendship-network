@@ -14,11 +14,11 @@ int Heap::right(int i) {
 int Heap::parent(int i) {
 	return (i-1)/2;
 }
-void Heap::insert(Song & s) {	//no key parameter since all values start at 0
+void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
-	s.resetListens();
-	s.setIndex(numElements);
-	list.push_back(s);
+	&s.resetListens();
+	&s.setIndex(numElements);
+	list.push_back(&s);
 	numElements++;
 	//may have to implement a fix to the heap here
 }
@@ -44,7 +44,7 @@ void Heap::swap(int pos1, int pos2){
 void Heap::increaseKey(unsigned int i) {
 	Song & s = getSong(i);
 	s.addListen();
-	/*while(i != 0 && list[parent(i)].getListens() < list[i].getListens()){
+	/*while(i != 0 && getSong(parent(i)).getListens() < getSong(i).getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
 		list[temp].setIndex(parent(temp));
