@@ -23,7 +23,8 @@ int main(int argc, char *argv[]){
 		   if (command.getArg1() == "song"){
 			   // Insert song into system (BST)
 			   Song song(command.getArg2());
-			   system.insert(song);
+			   Song* song_ptr = system.insert(song);
+			   std::cout << song_ptr << std::endl;
 			   //all_songs.print();
 			   //std::cout << "added song" << std::endl;
 		   }

@@ -13,21 +13,24 @@ BST<T>::BST(){
 }
 
 template <typename T>
-void BST<T>::insert(T key){
-    insertHelper(key, root);
+T* BST<T>::insert(T key){
+    return insert(key, root);
 }
 
 template <typename T>
-void BST<T>::insertHelper(T key, Node*& node){
+T* BST<T>::insert(T key, Node*& node){
     if (node == nullptr){
         node = new Node(key);
+        return &(node->key);
+
     }
     else if (key.getName() < (node->key).getName()){
-        insertHelper(key, node->left);
+        return insert(key, node->left);
     }
     else if (key.getName() > (node->key).getName()){
-        insertHelper(key, node->right);
+        return insert(key, node->right);
     }
+    return nullptr;
 }
 
 template <typename T>
