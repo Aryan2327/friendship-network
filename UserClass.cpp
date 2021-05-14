@@ -28,13 +28,13 @@ void UserClass::addFren(UserClass user){
 void UserClass::remFren(UserClass user){
 	rem_user = user.getName();
 	for(int i = 0; i < fren_vertex.size(); i++ ){
-		if(rem_user == fren_vertex.at(i)) //<<err string to vect
-			fren_vertex.erase(rem_user);
+		if(2 == fren_vertex.at(i)) //<<err string rem_user to vect
+			fren_vertex.erase(2); 
 
 	}
 }
 
-void UserClass::BFS( vector<UserClass> fren_vertex, int node){
+void UserClass::BFS(vector<UserClass> fren_vertex, int node){
 	int radius = 3;	
 
 	visited = new bool[vtx_count];

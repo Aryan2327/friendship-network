@@ -11,7 +11,7 @@ class UserClass {
 		UserClass();
 		//dummy class constructor
 
-		UserClass(string n);
+		UserClass(string n, vector<UserClass> fren_vertex);
 		//stores user attributes << name & friendships
 		
 		string getName();
@@ -23,7 +23,7 @@ class UserClass {
 		void remFren(UserClass user);
 		//remove user vertex from friends vector 
 		
-		void BFS();
+		void BFS(vector<UserClass> fren_vertex, int node);
 		//Breadth First Search
 
 	private:
@@ -31,19 +31,19 @@ class UserClass {
 		string saved_n; 
 		string rem_user;
 		int vtx_count;
-		int g;
 		int node;
 		int radius;
-
-		bool* visited;
-		//ptr to a boolean of visited vertices
 
 		vector<UserClass> fren_vertex;
 		//vector of friend vertices
 		
+		list<int> 
+
+		bool* visited;
+		//ptr to a boolean of visited vertices
+
 		list<int> queue;
-		//BFS queue
-		
+		//BFS queue	
 			
 		vector<int> distance;
 		//vector of distances for BFS
