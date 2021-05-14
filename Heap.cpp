@@ -16,15 +16,15 @@ int Heap::parent(int i) {
 }
 void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
-	s.resetListens();
-	s.setIndex(numElements);
+	s->resetListens();
+	s->setIndex(numElements);
 	list.push_back(s);
 	numElements++;
 	//may have to implement a fix to the heap here
 }
 
 Song Heap::extractMax() {
-	Song temp = list.front();
+	Song * temp = list.front();
 	list.erase(list.begin());
 	print();
 	numElements--;
@@ -52,10 +52,10 @@ void Heap::increaseKey(unsigned int i) {
 	}*/
 }
 void Heap::print() {
-	for(Song &s : list) {
-		cout << "Title: " << s.getTitle() << endl
-			 << "Index: " << s.getIndex() << endl
-			 << "Listens: " << s.getListens() << endl << endl;
+	for(Song *s : list) {
+		cout << "Title: " << s->getTitle() << endl
+			 << "Index: " << s->getIndex() << endl
+			 << "Listens: " << s->getListens() << endl << endl;
 	}
 }
 Song & Heap::getSong(int i) {
