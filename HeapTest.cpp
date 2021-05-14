@@ -15,6 +15,9 @@ int main(int argc, char *argv[]){
 	heap.insert(&s5);
 	heap.increaseKey(s4.getIndex());	//s4 should now be at start
 	heap.increaseKey(s4.getIndex());
+	heap.increaseKey(s1.getIndex());
+	heap.increaseKey(s1.getIndex());
+	heap.increaseKey(s1.getIndex());
 	//Song* s = heap.extractMax();
 	//cout << s->getTitle() << " " << s->getListens() << " " << s->getIndex() << endl;
 	heap.print();
