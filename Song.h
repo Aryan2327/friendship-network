@@ -6,17 +6,22 @@
 using namespace std;
 class Song{ 
 public:
-  Song();
-  Song(string name);
-  void setTitle(string);
-  string getName();
-  void addListen();
-  void resetListens();
-  unsigned int getListens();
-
+	Song();
+	Song(string);
+	Song(const Song &);
+	void operator=(const Song&);
+  	//void setTitle(string);
+  	string getName();
+  	void addListen();
+  	void resetListens();
+  	unsigned int getListens();
+  	void setListens(unsigned int);
+  	void setIndex(unsigned int);
+  	unsigned int getIndex();
 private:
-  string title;
-  unsigned int listens;
+  	string title;
+  	unsigned int listens;
+  	unsigned int heapIndex;
 };
 
 #endif

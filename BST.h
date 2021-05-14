@@ -20,14 +20,14 @@ class BST{
         };
 
         BST();
-        void insert(T key);
+        T* insert(T key);
         void print(); //inorder traversal
         T* search(T key);
         bool remove(T key);
         ~BST();
     private:
         Node* root;
-        void insertHelper(T key, Node*& node);
+        T* insert(T key, Node*& node);
         void print(Node*& node);
         T* search(T key, Node*& node);
         bool remove(T key, Node*& node, Node*& parent_node);

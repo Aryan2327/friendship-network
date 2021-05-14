@@ -19,20 +19,21 @@ int main(int argc, char *argv[]){
 		getline(std::cin, input);
 		Parser command(input);
 
-		if (command.getOperation() == "add"){
-			if (command.getArg1() == "song"){
-				// Insert song into system (BST)
-				Song song(command.getArg2());
-				system.insert(song);
-				//all_songs.print();
-				//std::cout << "added song" << std::endl;
-			}
-			else if (command.getArg1() == "user"){
-				// Add user/vertex to graph
-				UserClass user(command.getArg2());
-				users.insert(user);
-			}
-		}
+	   if (command.getOperation() == "add"){
+		   if (command.getArg1() == "song"){
+			   // Insert song into system (BST)
+			   Song song(command.getArg2());
+			   Song* song_ptr = system.insert(song);
+			   std::cout << song_ptr << std::endl;
+			   //all_songs.print();
+			   //std::cout << "added song" << std::endl;
+		   }
+		   else if (command.getArg1() == "user"){
+			   // Add user/vertex to graph
+			   UserClass user(command.getArg2());
+			   users.insert(user);
+		   }
+	   }
 
 		else if (command.getOperation() == "befriend"){
 			// Add existing users to friends vector of another user to simulate friendship

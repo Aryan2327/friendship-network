@@ -26,6 +26,14 @@ Main:	Main.o Song.o UserClass.o
 Main.o:	Main.cpp
 		g++ -c Main.cpp
 
+## test for heap, use with make HeapTest, ./HeapTest
+##feel free to adjust HeapTest.cpp with any other tests you want
+HeapTest: HeapTest.o
+		g++ HeapTest.o -o HeapTest
+
+HeapTest.o:	HeapTest.cpp Heap.cpp Song.cpp
+		g++ -c HeapTest.cpp Heap.cpp Song.cpp
+
 Song.o: Song.cpp
 		g++ -c Song.cpp
 

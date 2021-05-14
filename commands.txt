@@ -10,17 +10,7 @@ add user mike
 
 show songs
 
-remove b
-remove c
-remove a
-remove d
-remove e
 
-add song a 
-add song b
-add song c
-
-remove b
 
 
 
