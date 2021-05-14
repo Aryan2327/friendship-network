@@ -50,9 +50,9 @@ void Heap::increaseKey(unsigned int i) {
 	while(i != 0 && list[parent(i)]->getListens() < list[i]->getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
-		list[temp]->setIndex(parent(temp));
-		list[parent(temp)]->setIndex(temp);
-		i = parent(i);
+		//list[temp]->setIndex(parent(temp));
+		//list[parent(temp)]->setIndex(temp);
+		//i = parent(i);
 	}
 }
 void Heap::print() {
