@@ -26,7 +26,6 @@ void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 Song* Heap::extractMax() {
 	Song * temp = list.front();
 	list.erase(list.begin());
-	print();
 	numElements--;
 	for(int i = 0; i < numElements; i++){
 		Song* temp1 = list[i];

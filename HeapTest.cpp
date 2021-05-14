@@ -18,8 +18,8 @@ int main(int argc, char *argv[]){
 	heap.increaseKey(s1.getIndex());
 	heap.increaseKey(s1.getIndex());
 	heap.increaseKey(s1.getIndex());
-	Song* s = heap.extractMax();
-	cout << s->getTitle() << " " << s->getListens() << " " << s->getIndex() << endl;
-	cout << endl;
+	heap.extractMax();
+	heap.extractMax();
+	heap.increaseKey(s2.getIndex());
 	heap.print();
 }
