@@ -37,6 +37,9 @@ Song* Heap::extractMax() {
 
 void Heap::swap(int pos1, int pos2){
 	Song* temp = list[pos1];
+	unsigned int temp1 = list[pos1]->getIndex();
+	list[pos1]->setIndex(list[pos2]->getIndex());
+	list[pos2]->setIndex(temp1);
 	list[pos1] = list[pos2];
 	list[pos2] = temp;
 
@@ -47,9 +50,9 @@ void Heap::increaseKey(unsigned int i) {
 	while(i != 0 && list[parent(i)]->getListens() < list[i]->getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
-		i = parent(i);
 		list[temp]->setIndex(parent(temp));
 		list[parent(temp)]->setIndex(temp);
+		i = parent(i);
 	}
 }
 void Heap::print() {
