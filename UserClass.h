@@ -26,25 +26,24 @@ class UserClass {
 		void remFren(UserClass user, UserClass user2);
 		//remove user vertex from friends vector 
 		
-		void BFS(map<UserClass, fren_vector> adj_list, int node);
+		void BFS(map<string, fren_vertex> adj_list, int node);
 		//Breadth First Search creates a radius within a 3 levels
 
 	private:
 		//Variables
 		string saved_n; 
-		string rem_user;
-		int vtx_count;
+		int rem_user;
 		
 		int node;
 		int radius;
 
-		map<UserClass, fren_vector> adj_list;
+		map<string, fren_vertex> adj_list;
 		//Adj list that maps out names and friends
 
-		vector<Userclass> fren_vector;
+		vector<string> fren_vertex;
 		//vector of friendship edges
 	
-		int adj_array[];
+		const char adj_array[];
 		//vector iterator
 
 		bool* visited;//<<bool
