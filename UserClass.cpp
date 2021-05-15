@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <map>
 #include <list>
 
 #include "UserClass.h"
@@ -48,7 +49,7 @@ void UserClass::remFren(UserClass user, UserClass user2){
 	}
 }
 
-void UserClass::BFS(map<string, fren_vertex> adj_list, int node){
+void UserClass::BFS(map<string, vector<string> > adj_list, int node){
 	int radius = 3;	
 
 	//visited = new bool[vtx_count];

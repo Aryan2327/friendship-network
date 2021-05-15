@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <map>
 #include <list>
 
 using namespace std;
@@ -26,7 +27,7 @@ class UserClass {
 		void remFren(UserClass user, UserClass user2);
 		//remove user vertex from friends vector 
 		
-		void BFS(map<string, fren_vertex> adj_list, int node);
+		void BFS(map<string, vector<string> > adj_list, int node);
 		//Breadth First Search creates a radius within a 3 levels
 
 	private:
@@ -37,7 +38,7 @@ class UserClass {
 		int node;
 		int radius;
 
-		map<string, fren_vertex> adj_list;
+		map<string, vector<string> > adj_list;
 		//Adj list that maps out names and friends
 
 		vector<string> fren_vertex;
@@ -46,18 +47,13 @@ class UserClass {
 		const char adj_array[];
 		//vector iterator
 
-		bool* visited;//<<bool
+		bool* visited;
 		//ptr to a boolean of visited vertices
 
 		list<int> queue;
 		//BFS queue	
 			
-		vector<int> distance;
-		//vector of distances for BFS
-
-		vector<int> parent;
-		//vector of parent nodes for BFS
-
+	
 		
 		
 };
