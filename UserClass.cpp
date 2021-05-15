@@ -26,15 +26,17 @@ void UserClass::addUser(UserClass user){
 
 
 void UserClass::addFren(UserClass user, UserClass user2){
-	if(user = true && user2 = true){
+	if(user = true)
+		if(user2 = true){
 		fren_vector[user].push_back(user2);
 		fren_vector[user2].push_back(user);
+		}
 	} else 
 		cout << "Invalid user(s)." << endl; 
 }
 
 void UserClass::remFren(UserClass user, UserClass user2){
-	rem_user = fren_vertex[user];
+	rem_user = fren_vector[user];
 	for(int i = 0; i < fren_vector.size(); i++ ){
 		if(rem_user == fren_vector.at(i)) 
 			fren_vector.erase(rem_user); 

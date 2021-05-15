@@ -44,7 +44,7 @@ class UserClass {
 		vector<Userclass> fren_vector;
 		//vector of friendship edges
 	
-		//vector<>::iterator itr;
+		int adj_array[];
 		//vector iterator
 
 		bool* visited;//<<bool
