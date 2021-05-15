@@ -17,13 +17,16 @@ class UserClass {
 		string getName();
 		//get user's name
 
-		void addFren(UserClass user);
+		void addUser(UserClass user);
+		//adds user to container for adding friends
+
+		void addFren(UserClass user, UserClass user2);
 		//add user to friends vector 
 
-		void remFren(UserClass user);
+		void remFren(UserClass user, UserClass user2);
 		//remove user vertex from friends vector 
 		
-		void BFS(vector<UserClass> fren_vertex, int node);
+		void BFS(map<UserClass, fren_vector> adj_list, int node);
 		//Breadth First Search creates a radius within a 3 levels
 
 	private:
@@ -31,11 +34,18 @@ class UserClass {
 		string saved_n; 
 		string rem_user;
 		int vtx_count;
+		
 		int node;
 		int radius;
 
-		vector<UserClass> fren_vertex;
-		//vector of friend vertices
+		map<UserClass, fren_vector> adj_list;
+		//Adj list that maps out names and friends
+
+		vector<Userclass> fren_vector;
+		//vector of friendship edges
+	
+		//vector<>::iterator itr;
+		//vector iterator
 
 		bool* visited;//<<bool
 		//ptr to a boolean of visited vertices

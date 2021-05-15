@@ -19,25 +19,33 @@ string UserClass::getName(){
 	return saved_n;	
 }
 
-void UserClass::addFren(UserClass user){
-	user.getName();
-	fren_vertex.push_back(user);
-	vtx_count += 1;
+void UserClass::addUser(UserClass user){
+	vector<UserClass> fren_vector;
+	adj_arr[user] = fren_vector;
 }
 
-void UserClass::remFren(UserClass user){
-	rem_user = user.getName();
-	for(int i = 0; i < fren_vertex.size(); i++ ){
-		if(2 == fren_vertex.at(i)) //<<err string rem_user to vect
-			fren_vertex.erase(2); 
+
+void UserClass::addFren(UserClass user, UserClass user2){
+	if(user = true && user2 = true){
+		fren_vector[user].push_back(user2);
+		fren_vector[user2].push_back(user);
+	} else 
+		cout << "Invalid user(s)." << endl; 
+}
+
+void UserClass::remFren(UserClass user, UserClass user2){
+	rem_user = fren_vertex[user];
+	for(int i = 0; i < fren_vector.size(); i++ ){
+		if(rem_user == fren_vector.at(i)) 
+			fren_vector.erase(rem_user); 
 
 	}
 }
 
-void UserClass::BFS(vector<UserClass> fren_vertex, int node){
+void UserClass::BFS(adj_list, int node){
 	int radius = 3;	
 
-	visited = new bool[vtx_count];
+	//visited = new bool[vtx_count];
 	for(int i = 0; i < vtx_count; i++)
 		visited[i] = false; 		
 
@@ -48,7 +56,7 @@ void UserClass::BFS(vector<UserClass> fren_vertex, int node){
 	while(!queue.empty()){
 		int front_node = queue.front();
 		queue.pop_front();
-		for(auto i = fren_vertex[front_node].begin(); i <= radius; i++){ //<<auto
+		for(auto i = fren_vector[front_node].begin(); i <= radius; i++){ //<<auto/node
 			if(visited[*i] == false){
 				visited[*i] = true;
 				queue.push_back(*i);
