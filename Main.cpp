@@ -214,7 +214,7 @@ int main(int argc, char *argv[]){
 		else if (command.getOperation() == "recommend"){
 			int N;
 			stringstream(command.getOperation()) >> N;
-			for(int i = 0; i < N){
+			for(int i = 0; i < N; i++){
 				Song* s = heap.extractMax();
 				library.insert(*s);
 
