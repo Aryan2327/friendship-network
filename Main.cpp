@@ -163,7 +163,7 @@ int main(int argc, char *argv[]){
 						//song_ptr->addListen();
 						heap.increaseKey(song_ptr->getIndex());
 					}
-
+					heap.print();
 				}
 			
 
