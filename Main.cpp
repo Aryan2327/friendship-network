@@ -153,22 +153,16 @@ int main(int argc, char *argv[]){
 		   Song song(moreArg.getOperation());
 		   Song* song_ptr = system.search(song);
 			unsigned int N;
-			cout << "Song: " << song.getName() << endl;
 		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
-		   cout << "User, Song pointer:\n";
-		   cout << user_ptr << " " << song_ptr << endl;
 			if (user_ptr != nullptr && song_ptr != nullptr){
 				// Check if user is within EFN using BFS
-				cout << "test 1\n";
 				users.inorder_reinit();
 				if (BFS(primary, user_ptr)) {
-					cout << "test 2\n";
 					// Increment corresponding song listened to in heap N times (Must maintain heap property)
 					for(int i = 0; i < N; i++){
 						//song_ptr->addListen();
 						heap.increaseKey(song_ptr->getIndex());
 					}
-					heap.print();
 				}
 			
 
