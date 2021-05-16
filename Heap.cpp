@@ -51,7 +51,7 @@ void Heap::increaseKey(unsigned int i) {
 		swap(temp, parent(temp));
 		//list[temp]->setIndex(parent(temp));
 		//list[parent(temp)]->setIndex(temp);
-		//i = parent(i);
+		i = parent(i);
 	}
 }
 void Heap::print() {
