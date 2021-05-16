@@ -11,7 +11,7 @@
 #include "BST.h"
 #include "Heap.h"
 
-const int EFN = 5;
+const int EFN = 2;
 
 bool BFS(UserClass source, UserClass* target){
 	// Must initialize user objects in BST
