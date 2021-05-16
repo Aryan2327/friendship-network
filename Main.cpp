@@ -55,7 +55,6 @@ int main(int argc, char *argv[]){
 	BST<UserClass> users;
 	BST<Song> library;
 	BST<Song> system;
-	users.insert(primary);
 	std::cout << "['add' 'befriend' 'unfriend' 'listen' 'recommend' 'remove' 'show']" << std::endl;
 	while (input != "exit"){
 		getline(std::cin, input);
