@@ -154,6 +154,8 @@ int main(int argc, char *argv[]){
 			Parser moreArg(command.getArg2());
 			unsigned int N;
 		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
+		   cout << "User, Song pointer:\n";
+		   cout << user_ptr << " " << song_ptr << endl;
 			if (user_ptr != nullptr && song_ptr != nullptr){
 				// Check if user is within EFN using BFS
 				cout << "test 1\n";
