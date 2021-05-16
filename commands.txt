@@ -24,6 +24,9 @@ befriend sam jake
 befriend jake mark
 
 listen mark a 5
+listen sam b 4
+listen sam c 7
+listen sam a 3
 
 show friends sam
 unfriend sam jake

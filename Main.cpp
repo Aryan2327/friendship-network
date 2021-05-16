@@ -149,9 +149,9 @@ int main(int argc, char *argv[]){
 		else if (command.getOperation() == "listen"){
 			UserClass user(command.getArg1());
 			UserClass* user_ptr = users.search(user);
-			Song song(command.getArg2());
-			Song* song_ptr = system.search(song);
 			Parser moreArg(command.getArg2());
+		   Song song(moreArg.getOperation());
+		   Song* song_ptr = system.search(song);
 			unsigned int N;
 		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
 			if (user_ptr != nullptr && song_ptr != nullptr){
@@ -160,10 +160,9 @@ int main(int argc, char *argv[]){
 				if (BFS(primary, user_ptr)) {
 					// Increment corresponding song listened to in heap N times (Must maintain heap property)
 					for(int i = 0; i < N; i++){
-						//song_ptr->addListen();
-						heap.increaseKey(song_ptr->getIndex());
+						song_ptr->addListen();
 					}
-
+					heap.increaseKey(song_ptr->getIndex());
 				}
 			
 
@@ -177,52 +176,49 @@ int main(int argc, char *argv[]){
 			Song song(command.getArg1());
 			library.remove(song);
 			//system.print();
-
+			heap.insert(system.search(song));
 
 		}
 
-		else if (command.getOperation() == "show"){
-			if (command.getArg1() == "songs"){
-				if (command.getArg2() == "library"){
-					library.print();
-				}
-				else if (command.getArg2() == "system"){
-					system.print();
-				}
-				else if (command.getArg2() == "friends"){
-				}
-				else {
-					std::cout << "Error: Second arg incorrect." << std::endl;
-				}
-			}
+		else if (command.getOperation() == "show") {
+		   if (command.getArg1() == "songs") {
+			   if (command.getArg2() == "library") {
+				   library.print();
+			   } else if (command.getArg2() == "system") {
+				   system.print();
+			   } else if (command.getArg2() == "friends") {
+			   } else {
+				   std::cout << "Error: Second arg incorrect." << std::endl;
+			   }
+		   } else if (command.getArg1() == "friends") {
+			   if (!command.getArg2().empty()) {
+				   UserClass user(command.getArg2());
+				   UserClass *user_ptr = users.search(user);
+				   if (user_ptr != nullptr) {
+					   user_ptr->showFrens();
+				   } else {
+					   std::cout << "Error: User not found." << std::endl;
+				   }
+			   } else {
+				   primary.showFrens();
+			   }
 
-			else if (command.getArg1() == "friends"){
-				if (!command.getArg2().empty()){
-					UserClass user(command.getArg2());
-					UserClass* user_ptr = users.search(user);
-					if (user_ptr != nullptr){
-						user_ptr->showFrens();
-					}
-					else{
-						std::cout << "Error: User not found." << std::endl;
-					}
-				}
-				else {
-					primary.showFrens();
-				}
-				
-			}
-
+		   }
+	   }
 		else if (command.getOperation() == "recommend"){
 			int N;
 			stringstream(command.getArg1()) >> N;
-			for(int i = 0; i < N; i++){
-				Song* s = heap.extractMax();
-				library.insert(*s);
+			if(N > heap.getNum()){
+				cout << "Error: Number exceeds list size.\n";
+			}
+			else {
+				for (int i = 0; i < N; i++) {
+					Song *s = heap.extractMax();
+					library.insert(*s);
 
+				}
 			}
-			
-			}
+
 		}
 		else if(command.getOperation() == "heap"){
 			heap.print();

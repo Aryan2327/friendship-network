@@ -13,6 +13,10 @@ int Heap::right(int i) {
 }
 int Heap::parent(int i) {
 	return (i-1)/2;
+
+}
+int Heap::getNum() {
+	return numElements;
 }
 void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
@@ -31,9 +35,25 @@ Song* Heap::extractMax() {
 		Song* temp1 = list[i];
 		temp1->setIndex(temp1->getIndex() - 1);
 	}
+	maxHeapify(0);
 	return temp;
 }
-
+void Heap::maxHeapify(unsigned int i) {
+	int l = left(i);
+	int r = right(i);
+	int largest;
+	if(l < numElements && list[l]->getListens() > list[i]->getListens()){	//might be <=
+		largest = l;
+	}
+	else
+		largest = i;
+	if(r < numElements && list[r]->getListens() > list[largest]->getListens())
+		largest = r;
+	if(largest != i){
+		swap(i, largest);
+		maxHeapify(largest);
+	}
+}
 void Heap::swap(int pos1, int pos2){
 	Song* temp = list[pos1];
 	unsigned int temp1 = list[pos1]->getIndex();
@@ -44,14 +64,14 @@ void Heap::swap(int pos1, int pos2){
 
 }
 void Heap::increaseKey(unsigned int i) {
-	Song* s = list[i];
-	s->addListen();
+	//Song* s = list[i];
+	//s->addListen();
 	while(i != 0 && list[parent(i)]->getListens() < list[i]->getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
 		//list[temp]->setIndex(parent(temp));
 		//list[parent(temp)]->setIndex(temp);
-		//i = parent(i);
+		i = parent(i);
 	}
 }
 void Heap::print() {
