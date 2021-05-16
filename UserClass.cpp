@@ -43,9 +43,9 @@ void UserClass::addFren(UserClass* user){
 	fren_vertex.push_back(user);
 }
 
-void UserClass::remFren(UserClass* user){
+void UserClass::remFren(UserClass user){
 	for (int i = 0; i < fren_vertex.size(); i++){
-		if (user->getName() == fren_vertex[i]->getName()){
+		if (user.getName() == fren_vertex[i]->getName()){
 			fren_vertex.erase(fren_vertex.begin() + i);
 		}
 	}
@@ -59,3 +59,12 @@ void UserClass::reinit(){
 	color = "white";
 	distance = INT_MAX;
 }
+
+int UserCLass::showFrens(Userclass user){
+	for(int i = 0; i < fren_vertex.size(); i++){
+		cout<< "Your friends are:\n" << fren_vertex[i]->getName() << endl;
+	} 
+	cout << "That is all your friends." << endl;
+	return 0;
+}
+
