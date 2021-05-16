@@ -44,8 +44,8 @@ void Heap::swap(int pos1, int pos2){
 
 }
 void Heap::increaseKey(unsigned int i) {
-	Song* s = list[i];
-	s->addListen();
+	//Song* s = list[i];
+	//s->addListen();
 	while(i != 0 && list[parent(i)]->getListens() < list[i]->getListens()){
 		int temp = i;
 		swap(temp, parent(temp));
@@ -56,7 +56,7 @@ void Heap::increaseKey(unsigned int i) {
 }
 void Heap::print() {
 	for(Song *s : list) {
-		cout << "Title: " << s->getTitle() << endl
+		cout << "Title: " << s->getName() << endl
 			 << "Index: " << s->getIndex() << endl
 			 << "Listens: " << s->getListens() << endl << endl;
 	}

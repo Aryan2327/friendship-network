@@ -23,7 +23,7 @@ befriend sam morty
 befriend sam jake
 befriend jake mark
 
-listen mark a
+listen mark a 5
 
 show friends sam
 unfriend sam jake

@@ -9,8 +9,9 @@
 #include "Song.h"
 #include "UserClass.h"
 #include "BST.h"
+#include "Heap.cpp"
 
-const int EFN = 4;
+const int EFN = 5;
 
 bool BFS(UserClass source, UserClass* target){
 	// Must initialize user objects in BST
@@ -55,6 +56,7 @@ int main(int argc, char *argv[]){
 	BST<UserClass> users;
 	BST<Song> library;
 	BST<Song> system;
+	Heap heap = Heap();
 	std::cout << "['add' 'befriend' 'unfriend' 'listen' 'recommend' 'remove' 'show']" << std::endl;
 	while (input != "exit"){
 		getline(std::cin, input);
@@ -66,7 +68,7 @@ int main(int argc, char *argv[]){
 			   Song song(command.getArg2());
 			   Song* song_ptr = system.insert(song);
 			   // Insert pointer to song into heap
-
+				heap.insert(song_ptr);
 			   //std::cout << "added song" << std::endl;
 		   }
 		   else if (command.getArg1() == "user"){
@@ -149,12 +151,19 @@ int main(int argc, char *argv[]){
 			UserClass* user_ptr = users.search(user);
 			Song song(command.getArg2());
 			Song* song_ptr = system.search(song);
-
+			Parser moreArg(command.getArg2());
+			unsigned int N;
+		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
 			if (user_ptr != nullptr && song_ptr != nullptr){
 				// Check if user is within EFN using BFS
 				users.inorder_reinit();
 				if (BFS(primary, user_ptr)) {
 					// Increment corresponding song listened to in heap N times (Must maintain heap property)
+					for(int i = 0; i < N; i++){
+						song_ptr->addListen();
+
+					}
+					heap.increaseKey(song_ptr->getIndex());
 				}
 			
 
@@ -166,7 +175,7 @@ int main(int argc, char *argv[]){
 		else if (command.getOperation() == "remove"){
 			// Remove song from primary library and set the song listens in the heap to 0
 			Song song(command.getArg1());
-			system.remove(song);
+			library.remove(song);
 			//system.print();
 
 
@@ -205,11 +214,18 @@ int main(int argc, char *argv[]){
 			}
 
 		else if (command.getOperation() == "recommend"){
-			int radius;
-			stringstream(command.getOperation()) >> radius;
-			
+			int N;
+			stringstream(command.getArg1()) >> N;
+			for(int i = 0; i < N; i++){
+				Song* s = heap.extractMax();
+				library.insert(*s);
+
+			}
 			
 			}
+		}
+		else if(command.getOperation() == "heap"){
+			heap.print();
 		}
 	}
 
