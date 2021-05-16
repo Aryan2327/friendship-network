@@ -26,6 +26,9 @@ befriend jake mark
 listen mark a
 
 show friends sam
+unfriend sam jake
+show friends sam
+show friends jake
 
 recommend 6
 
