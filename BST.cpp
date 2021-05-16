@@ -88,7 +88,7 @@ T* BST<T>::search(T key, Node*& node){
     if (key.getName() > (node->key).getName()){
         return search(key, node->right);
     }
-    return nullptr;
+    //return nullptr;
 }
 
 template <typename T>
