@@ -1,5 +1,5 @@
 #include "Heap.h"
-//#include "Song.cpp"
+#include "Song.h"
 #include <iostream>
 using namespace std;
 Heap::Heap(){
