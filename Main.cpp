@@ -152,7 +152,8 @@ int main(int argc, char *argv[]){
 			Song song(command.getArg2());
 			Song* song_ptr = system.search(song);
 			Parser moreArg(command.getArg2());
-			unsigned int N = moreArg.getArg1();
+			unsigned int N;
+		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
 
 			if (user_ptr != nullptr && song_ptr != nullptr){
 				// Check if user is within EFN using BFS
@@ -213,7 +214,7 @@ int main(int argc, char *argv[]){
 
 		else if (command.getOperation() == "recommend"){
 			int N;
-			stringstream(command.getOperation()) >> N;
+			stringstream(command.getArg1()) >> N;
 			for(int i = 0; i < N; i++){
 				Song* s = heap.extractMax();
 				library.insert(*s);
