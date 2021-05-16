@@ -9,7 +9,7 @@
 #include "Song.h"
 #include "UserClass.h"
 #include "BST.h"
-#include "Heap.cpp"
+#include "Heap.h"
 
 const int EFN = 5;
 
@@ -161,7 +161,6 @@ int main(int argc, char *argv[]){
 					// Increment corresponding song listened to in heap N times (Must maintain heap property)
 					for(int i = 0; i < N; i++){
 						song_ptr->addListen();
-						song.addListen();
 					}
 					heap.increaseKey(song_ptr->getIndex());
 				}
