@@ -11,7 +11,7 @@
 #include "BST.h"
 #include "Heap.cpp"
 
-const int EFN = 4;
+const int EFN = 5;
 
 bool BFS(UserClass source, UserClass* target){
 	// Must initialize user objects in BST
@@ -154,7 +154,6 @@ int main(int argc, char *argv[]){
 			Parser moreArg(command.getArg2());
 			unsigned int N;
 		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
-
 			if (user_ptr != nullptr && song_ptr != nullptr){
 				// Check if user is within EFN using BFS
 				users.inorder_reinit();
