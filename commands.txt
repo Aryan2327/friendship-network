@@ -25,6 +25,8 @@ befriend jake mark
 
 listen mark a
 
+show friends
+
 recommend 6
 
 

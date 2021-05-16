@@ -42,7 +42,7 @@ class UserClass {
 		void reinit();
 		//reinitializes vars
 	
-		int showFrens(UserClass user);	
+		int showFrens();	
 		//show user's friends 
 
 	private:

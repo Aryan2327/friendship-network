@@ -159,7 +159,6 @@ int main(int argc, char *argv[]){
 					system.print();
 				}
 				else if (command.getArg2() == "friends"){
-					user.showFrens(user);
 				}
 				else {
 					std::cout << "Error: Second arg incorrect." << std::endl;
@@ -167,16 +166,29 @@ int main(int argc, char *argv[]){
 			}
 
 			else if (command.getArg1() == "friends"){
-
+				if (!command.getArg2().empty()){
+					UserClass user(command.getArg2());
+					UserClass* user_ptr = users.search(user);
+					if (user_ptr != nullptr){
+						user_ptr->showFrens();
+					}
+					else{
+						std::cout << "Error: User not found." << std::endl;
+					}
+				}
+				else {
+					primary.showFrens();
+				}
+				
 			}
-		}
 
 		else if (command.getOperation() == "recommend"){
 			int radius;
 			stringstream(command.getOperation()) >> radius;
 			
 			
+			}
 		}
-
 	}
+
 }
