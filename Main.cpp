@@ -153,6 +153,7 @@ int main(int argc, char *argv[]){
 			Song* song_ptr = system.search(song);
 			Parser moreArg(command.getArg2());
 			unsigned int N;
+			cout << "Song: " << song.getName() << endl;
 		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
 		   cout << "User, Song pointer:\n";
 		   cout << user_ptr << " " << song_ptr << endl;
