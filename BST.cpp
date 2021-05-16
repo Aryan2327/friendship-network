@@ -77,6 +77,7 @@ T* BST<T>::search(T key){
 template <typename T>
 T* BST<T>::search(T key, Node*& node){
     if (node == nullptr){
+    	cout << "failed first if\n";
         return nullptr;
     }
     if (key.getName() == (node->key).getName()){
@@ -88,6 +89,7 @@ T* BST<T>::search(T key, Node*& node){
     if (key.getName() > (node->key).getName()){
         return search(key, node->right);
     }
+    cout << "reached end\n";
     //return nullptr;
 }
 
