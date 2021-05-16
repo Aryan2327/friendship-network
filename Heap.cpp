@@ -31,10 +31,10 @@ Song* Heap::extractMax() {
 	Song * temp = list.front();
 	list.erase(list.begin());
 	numElements--;
-	/*for(int i = 0; i < numElements; i++){
+	for(int i = 0; i < numElements; i++){
 		Song* temp1 = list[i];
 		temp1->setIndex(temp1->getIndex() - 1);
-	}*/
+	}
 	maxHeapify(0);
 	return temp;
 }
