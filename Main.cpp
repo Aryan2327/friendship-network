@@ -9,7 +9,6 @@
 #include "Song.h"
 #include "UserClass.h"
 #include "BST.h"
-#include "Heap.h"
 #include "Heap.cpp"
 
 const int EFN = 4;
