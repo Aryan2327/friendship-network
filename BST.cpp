@@ -52,6 +52,24 @@ void BST<T>::print(Node*& node){
 }
 
 template <typename T>
+void BST<T>::inorder_reinit(){
+    if (root != nullptr) inorder_reinit(root);
+}
+
+template <typename T>
+void BST<T>::inorder_reinit(Node*& node){
+    if (node->left != nullptr){
+        inorder_reinit(node->left);
+    }
+    if (node != nullptr){
+        (node->key).reinit();
+    }
+    if (node->right != nullptr){
+        inorder_reinit(node->right);
+    }
+}
+
+template <typename T>
 T* BST<T>::search(T key){
     return search(key, root);
 }
@@ -70,6 +88,7 @@ T* BST<T>::search(T key, Node*& node){
     if (key.getName() > (node->key).getName()){
         return search(key, node->right);
     }
+    return nullptr;
 }
 
 template <typename T>

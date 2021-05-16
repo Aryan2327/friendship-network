@@ -7,8 +7,23 @@ add song c
 
 add user paul
 add user mike
+add user sam
+add user jake
+add user morty
+add user mark
 
 show songs
+
+befriend paul
+befriend morty
+befriend paul mike
+befriend paul sam
+befriend paul morty
+befriend sam morty
+befriend sam jake
+befriend jake mark
+
+listen mark a
 
 
 

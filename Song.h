@@ -18,6 +18,7 @@ public:
   	void setListens(unsigned int);
   	void setIndex(unsigned int);
   	unsigned int getIndex();
+	void reinit();
 private:
   	string title;
   	unsigned int listens;

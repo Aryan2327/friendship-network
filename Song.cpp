@@ -46,3 +46,4 @@ void Song::setIndex(unsigned int i) {
 unsigned int Song::getIndex() {
 	return heapIndex;
 }
+void Song::reinit() {}

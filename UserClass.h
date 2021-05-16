@@ -18,42 +18,38 @@ class UserClass {
 		string getName();
 		//get user's name
 
-		void addUser(UserClass user);
-		//adds user to container for adding friends
+		string getColor();
+		//get color
 
-		void addFren(UserClass user, UserClass user2);
+		void setColor(string color);
+		//set color
+
+		int getDistance();
+		//get distance
+
+		void setDistance(int d);
+		//set distance
+
+		void addFren(UserClass* user);
 		//add user to friends vector 
 
-		void remFren(UserClass user, UserClass user2);
-		//remove user vertex from friends vector 
-		
-		void BFS(map<string, vector<string> > adj_list, int node);
-		//Breadth First Search creates a radius within a 3 levels
+		void remFren(UserClass user);
+		//remove user vertex from friends vector
+
+		vector<UserClass*> getFren();
+		//return friends vector
+
+		void reinit();
+		//reinitializes vars
 
 	private:
 		//Variables
-		string saved_n; 
-		int rem_user;
-		
-		int node;
-		int radius;
+		string saved_n;
 
-		map<string, vector<string> > adj_list;
-		//Adj list that maps out names and friends
+		string color;
 
-		vector<string> fren_vertex;
+		int distance;
+
+		vector<UserClass*> fren_vertex;
 		//vector of friendship edges
-	
-		const char adj_array[];
-		//vector iterator
-
-		bool* visited;
-		//ptr to a boolean of visited vertices
-
-		list<int> queue;
-		//BFS queue	
-			
-	
-		
-		
 };

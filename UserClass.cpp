@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <list>
+#include <climits>
 
 #include "UserClass.h"
 
@@ -14,61 +15,47 @@ UserClass::UserClass(){
 
 UserClass::UserClass(string n){
 	saved_n = n;
+	color = "white";
+	distance = INT_MAX;
 }
 		
 string UserClass::getName(){
 	return saved_n;	
 }
 
-void UserClass::addUser(UserClass user){
-	vector<string> fren_vertex;
-	adj_arr[user] = fren_vertex;
+string UserClass::getColor(){
+	return color;
 }
 
+void UserClass::setColor(string color){
+	this->color = color;
+}
 
-void UserClass::addFren(UserClass user, UserClass user2){
-	if(user != NULL)
-		if(user2 != NULL){
-		fren_vertex[user].push_back(user2);
-		fren_vertex[user2].push_back(user);
+int UserClass::getDistance(){
+	return distance;
+}
+
+void UserClass::setDistance(int d){
+	distance = d;
+}
+
+void UserClass::addFren(UserClass* user){
+	fren_vertex.push_back(user);
+}
+
+void UserClass::remFren(UserClass user){
+	for (int i = 0; i < fren_vertex.size(); i++){
+		if (user.getName() == fren_vertex[i]->getName()){
+			fren_vertex.erase(fren_vertex.begin() + i);
 		}
-	} else 
-		cout << "Invalid user(s)." << endl; 
-}
-
-void UserClass::remFren(UserClass user, UserClass user2){
-	rem_user = adj_arr[user];
-	for(int i = 0; i < adj_arr[user].size(); i++ ){
-		if(rem_user == aj_arr[i]) 
-			adj_arr[i].erase(rem_user); 
-	}
-	rem_user = adj_arr[user2];
-	for(int i = 0; i < adj_arr[user2].size(); i++ ){
-		if(rem_user == aj_arr[i]) 
-			adj_arr[i].erase(rem_user); 
 	}
 }
 
-void UserClass::BFS(map<string, vector<string> > adj_list, int node){
-	int radius = 3;	
+vector<UserClass*> UserClass::getFren(){
+	return fren_vertex;
+}
 
-	//visited = new bool[vtx_count];
-	for(int i = 0; i < adj_arr[user].size(); i++)
-		visited[i] = false; 		
-
-	list<int> queue;
-	queue.push_back(node);
-	visited[node] = true;
-		
-	while(!queue.empty()){
-		int front_node = queue.front();
-		queue.pop_front();
-		for(auto i = fren_vertex[front_node].begin(); i <= radius; i++){ //<<auto/node
-			if(visited[*i] == false){
-				visited[*i] = true;
-				queue.push_back(*i);
-			}
-		//visited[front_node] = true;
-		}
-	}	
+void UserClass::reinit(){
+	color = "white";
+	distance = INT_MAX;
 }

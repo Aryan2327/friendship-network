@@ -3,14 +3,55 @@
 #include <iterator>
 #include <stdlib.h>
 #include <string>
+#include <queue>
 
 #include "Parser.h"
 #include "Song.h"
 #include "UserClass.h"
 #include "BST.h"
 
+const int EFN = 4;
+
+bool BFS(UserClass source, UserClass* target){
+	// Must initialize user objects in BST
+	 		
+	source.setColor("grey");
+	source.setDistance(0);
+	std::queue<UserClass> queue;
+	queue.push(source);
+		
+	while(!queue.empty()){
+		UserClass u = queue.front();
+		//std::cout << u.getName() << std::endl;
+		queue.pop();
+		auto friends = u.getFren();
+		for(int i = 0; i < friends.size(); i++){ // friends of user
+			auto v = friends[i];
+			if (v->getColor() == "white"){
+				v->setColor("grey");
+				v->setDistance(u.getDistance()+1);
+
+				//std::cout << v.getName() << std::endl;
+				if (v->getName() == target->getName()){
+					if (v->getDistance() <= EFN){
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+
+				queue.push(*v);
+			}
+		}
+		u.setColor("black");
+	}
+	return false;	
+}
+
 int main(int argc, char *argv[]){
 	std::string input;
+	UserClass primary("Rick");
 	BST<UserClass> users;
 	BST<Song> library;
 	BST<Song> system;
@@ -22,10 +63,10 @@ int main(int argc, char *argv[]){
 	   if (command.getOperation() == "add"){
 		   if (command.getArg1() == "song"){
 			   // Insert song into system (BST)
+			   // Insert pointer to song into heap
 			   Song song(command.getArg2());
 			   Song* song_ptr = system.insert(song);
-			   std::cout << song_ptr << std::endl;
-			   //all_songs.print();
+			   //std::cout << song_ptr << std::endl;
 			   //std::cout << "added song" << std::endl;
 		   }
 		   else if (command.getArg1() == "user"){
@@ -37,13 +78,39 @@ int main(int argc, char *argv[]){
 
 		else if (command.getOperation() == "befriend"){
 			// Add existing users to friends vector of another user to simulate friendship
+			UserClass user1(command.getArg1());
+			UserClass user2(command.getArg2());
 
 
 			if (command.getArg2().empty()){
 				// One argument implies that a friendship is created b/w primary user and another user
+				UserClass* user_ptr1 = users.search(user1);
+
+				if (user_ptr1 != nullptr){
+					primary.addFren(user_ptr1);
+					user_ptr1->addFren(&primary);
+					
+				}
+				else{
+					std::cout << "Error: User not found." << std::endl;
+				}
 			}
 			else if (!command.getArg1().empty() && !command.getArg2().empty()){
 				// Two arguments imply that a friendship is created b/w two other users
+				UserClass* user_ptr1 = users.search(user1);
+				UserClass* user_ptr2 = users.search(user2);
+
+				//std::cout << user_ptr1->getName() << user_ptr2->getName() << std::endl;
+
+				if (user_ptr1 != nullptr && user_ptr2 != nullptr) {
+					user_ptr1->addFren(user_ptr2);
+					//std::cout << user_ptr1->getFren()[1].getName() << std::endl;
+					user_ptr2->addFren(user_ptr1);
+				}
+				else{
+					std::cout << "Error: User not found." << std::endl;
+				}
+
 			}
 		}
 
@@ -59,8 +126,20 @@ int main(int argc, char *argv[]){
 		}
 
 		else if (command.getOperation() == "listen"){
-			// Check if user is within EFN using BFS
-			// Increment corresponding song listened to in heap N times
+			UserClass user(command.getArg1());
+			UserClass* user_ptr = users.search(user);
+			Song song(command.getArg2());
+			Song* song_ptr = system.search(song);
+
+			if (user_ptr != nullptr && song_ptr != nullptr){
+				// Check if user is within EFN using BFS
+				users.inorder_reinit();
+				if (BFS(primary, user_ptr)) std::cout << "correct" << std::endl;
+			
+
+
+				// Increment corresponding song listened to in heap N times
+			}
 		}
 
 		else if (command.getOperation() == "remove"){
@@ -75,6 +154,7 @@ int main(int argc, char *argv[]){
 		else if (command.getOperation() == "show"){
 			if (command.getArg1() == "songs"){
 				library.print();
+				system.print();
 			}
 		}
 
