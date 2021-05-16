@@ -15,6 +15,9 @@ int Heap::parent(int i) {
 	return (i-1)/2;
 
 }
+int Heap::getNum() {
+	return numElements;
+}
 void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
 	s->resetListens();

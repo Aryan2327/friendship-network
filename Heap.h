@@ -16,6 +16,7 @@ public:
 	void swap(int, int);
 	void increaseKey(unsigned int);	//may need to add another parameter for new value if needed, for now adds 1
 	void print();
+	int getNum();
 private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	vector<Song*> list;
 	unsigned int numElements;

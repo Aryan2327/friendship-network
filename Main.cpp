@@ -208,10 +208,15 @@ int main(int argc, char *argv[]){
 		else if (command.getOperation() == "recommend"){
 			int N;
 			stringstream(command.getArg1()) >> N;
-			for(int i = 0; i < N; i++){
-				Song* s = heap.extractMax();
-				library.insert(*s);
+			if(N > heap.getNum()){
+				cout << "Error: Number exceeds list size.\n";
+			}
+			else {
+				for (int i = 0; i < N; i++) {
+					Song *s = heap.extractMax();
+					library.insert(*s);
 
+				}
 			}
 
 		}
