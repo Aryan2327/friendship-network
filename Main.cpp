@@ -176,7 +176,7 @@ int main(int argc, char *argv[]){
 			Song song(command.getArg1());
 			library.remove(song);
 			//system.print();
-
+			heap.insert(system.search(song));
 
 		}
 
