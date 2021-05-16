@@ -149,9 +149,9 @@ int main(int argc, char *argv[]){
 		else if (command.getOperation() == "listen"){
 			UserClass user(command.getArg1());
 			UserClass* user_ptr = users.search(user);
-			Song* song_ptr = system.search(song);
 			Parser moreArg(command.getArg2());
 		   Song song(moreArg.getOperation());
+		   Song* song_ptr = system.search(song);
 			unsigned int N;
 			cout << "Song: " << song.getName() << endl;
 		   stringstream(moreArg.getArg1()) >> N;	//arg1 of arg2
