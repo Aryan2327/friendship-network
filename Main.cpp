@@ -217,6 +217,7 @@ int main(int argc, char *argv[]){
 			for(int i = 0; i < N){
 				Song* s = heap.extractMax();
 				library.insert(*s);
+
 			}
 			
 			}
