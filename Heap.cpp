@@ -12,8 +12,8 @@ int Heap::right(int i) {
 	return (2*i)+2;
 }
 int Heap::parent(int i) {
-	//return (i-1)/2;
-	return i/2;
+	return (i-1)/2;
+
 }
 void Heap::insert(Song * s) {	//no key parameter since all values start at 0
 	//may have to implement song existence check
