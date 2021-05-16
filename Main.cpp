@@ -162,8 +162,9 @@ int main(int argc, char *argv[]){
 					// Increment corresponding song listened to in heap N times (Must maintain heap property)
 					for(int i = 0; i < N; i++){
 						song_ptr->addListen();
-						heap.increaseKey(song_ptr->getIndex());
+
 					}
+					heap.increaseKey(song_ptr->getIndex());
 				}
 			
 
