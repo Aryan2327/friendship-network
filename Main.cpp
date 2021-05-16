@@ -169,6 +169,9 @@ int main(int argc, char *argv[]){
 		}
 
 		else if (command.getOperation() == "recommend"){
+			int radius;
+			stringstream(command.getOperation()) >> radius;
+			
 			
 		}
 
