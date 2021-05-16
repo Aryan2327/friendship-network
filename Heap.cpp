@@ -31,13 +31,29 @@ Song* Heap::extractMax() {
 	Song * temp = list.front();
 	list.erase(list.begin());
 	numElements--;
-	for(int i = 0; i < numElements; i++){
+	/*for(int i = 0; i < numElements; i++){
 		Song* temp1 = list[i];
 		temp1->setIndex(temp1->getIndex() - 1);
-	}
+	}*/
+	maxHeapify(0);
 	return temp;
 }
-
+void Heap::maxHeapify(unsigned int i) {
+	int l = left(i);
+	int r = right(i);
+	int largest;
+	if(l < numElements && list[l]->getListens() > list[i]->getListens()){	//might be <=
+		largest = l;
+	}
+	else
+		largest = i;
+	if(r < numElements && list[r]->getListens() > list[largest]->getListens())
+		largest = r;
+	if(largest != i){
+		swap(i, largest);
+		maxHeapify(largest);
+	}
+}
 void Heap::swap(int pos1, int pos2){
 	Song* temp = list[pos1];
 	unsigned int temp1 = list[pos1]->getIndex();
