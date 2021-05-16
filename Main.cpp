@@ -175,8 +175,8 @@ int main(int argc, char *argv[]){
 			// Remove song from primary library and set the song listens in the heap to 0
 			Song song(command.getArg1());
 			library.remove(song);
-			//system.print();
-			heap.insert(system.search(song));
+			Song* song_ptr = system.search(song);
+			heap.insert(song_ptr); //causes segfault
 
 		}
 
@@ -185,7 +185,7 @@ int main(int argc, char *argv[]){
 			   if (command.getArg2() == "library") {
 				   library.print();
 			   } else if (command.getArg2() == "system") {
-				   system.print();
+				   heap.print();
 			   } else if (command.getArg2() == "friends") {
 			   } else {
 				   std::cout << "Error: Second arg incorrect." << std::endl;
@@ -215,7 +215,6 @@ int main(int argc, char *argv[]){
 				for (int i = 0; i < N; i++) {
 					Song *s = heap.extractMax();
 					library.insert(*s);
-					system.remove(*s);  // Heap should model the system maybe
 				}
 			}
 
