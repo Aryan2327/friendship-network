@@ -55,7 +55,7 @@ int main(int argc, char *argv[]){
 	BST<UserClass> users;
 	BST<Song> library;
 	BST<Song> system;
-	std::cout << "['add' 'befriend' 'unfriend' 'listen' 'remove' 'show']" << std::endl;
+	std::cout << "['add' 'befriend' 'unfriend' 'listen' 'recommend' 'remove' 'show']" << std::endl;
 	while (input != "exit"){
 		getline(std::cin, input);
 		Parser command(input);
@@ -63,10 +63,10 @@ int main(int argc, char *argv[]){
 	   if (command.getOperation() == "add"){
 		   if (command.getArg1() == "song"){
 			   // Insert song into system (BST)
-			   // Insert pointer to song into heap
 			   Song song(command.getArg2());
 			   Song* song_ptr = system.insert(song);
-			   //std::cout << song_ptr << std::endl;
+			   // Insert pointer to song into heap
+
 			   //std::cout << "added song" << std::endl;
 		   }
 		   else if (command.getArg1() == "user"){
@@ -100,11 +100,8 @@ int main(int argc, char *argv[]){
 				UserClass* user_ptr1 = users.search(user1);
 				UserClass* user_ptr2 = users.search(user2);
 
-				//std::cout << user_ptr1->getName() << user_ptr2->getName() << std::endl;
-
 				if (user_ptr1 != nullptr && user_ptr2 != nullptr) {
 					user_ptr1->addFren(user_ptr2);
-					//std::cout << user_ptr1->getFren()[1].getName() << std::endl;
 					user_ptr2->addFren(user_ptr1);
 				}
 				else{
@@ -134,11 +131,13 @@ int main(int argc, char *argv[]){
 			if (user_ptr != nullptr && song_ptr != nullptr){
 				// Check if user is within EFN using BFS
 				users.inorder_reinit();
-				if (BFS(primary, user_ptr)) std::cout << "correct" << std::endl;
+				if (BFS(primary, user_ptr)) {
+					// Increment corresponding song listened to in heap N times (Must maintain heap property)
+				}
 			
 
 
-				// Increment corresponding song listened to in heap N times
+				
 			}
 		}
 
@@ -146,15 +145,26 @@ int main(int argc, char *argv[]){
 			// Remove song from primary library and set the song listens in the heap to 0
 			Song song(command.getArg1());
 			system.remove(song);
-			system.print();
+			//system.print();
 
 
 		}
 
 		else if (command.getOperation() == "show"){
 			if (command.getArg1() == "songs"){
-				library.print();
-				system.print();
+				if (command.getArg2() == "library"){
+					library.print();
+				}
+				else if (command.getArg2() == "system"){
+					system.print();
+				}
+				else {
+					std::cout << "Error: Second arg incorrect." << std::endl;
+				}
+			}
+
+			else if (command.getArg1() == "friends"){
+				
 			}
 		}
 
