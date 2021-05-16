@@ -1,5 +1,5 @@
-#ifndef CS_240_HEAP_H
-#define CS_240_HEAP_H	//might have to change to HEAP_H
+#ifndef HEAP_H
+#define HEAP_H	//might have to change to HEAP_H
 #include <vector>
 #include "Song.h"
 using namespace std;
@@ -20,4 +20,4 @@ private:		//WE CAN ADJUST FUNCTIONS AND ADD PRIVATE VARIABLES IF NEEDED
 	vector<Song*> list;
 	unsigned int numElements;
 };
-#endif //CS_240_HEAP_H
+#endif //HEAP_H
