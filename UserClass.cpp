@@ -43,9 +43,9 @@ void UserClass::addFren(UserClass* user){
 	fren_vertex.push_back(user);
 }
 
-void UserClass::remFren(UserClass user){
+void UserClass::remFren(UserClass* user){
 	for (int i = 0; i < fren_vertex.size(); i++){
-		if (user.getName() == fren_vertex[i]->getName()){
+		if (user->getName() == fren_vertex[i]->getName()){
 			fren_vertex.erase(fren_vertex.begin() + i);
 		}
 	}

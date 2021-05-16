@@ -33,7 +33,7 @@ class UserClass {
 		void addFren(UserClass* user);
 		//add user to friends vector 
 
-		void remFren(UserClass user);
+		void remFren(UserClass* user);
 		//remove user vertex from friends vector
 
 		vector<UserClass*> getFren();
