@@ -164,8 +164,12 @@ int main(int argc, char *argv[]){
 			}
 
 			else if (command.getArg1() == "friends"){
-				
+
 			}
+		}
+
+		else if (command.getOperation() == "recommend"){
+			
 		}
 
 	}
