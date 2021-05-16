@@ -223,6 +223,9 @@ int main(int argc, char *argv[]){
 			
 			}
 		}
+		else if(command.getOperation() == "heap"){
+			heap.print();
+		}
 	}
 
 }
