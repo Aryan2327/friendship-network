@@ -51,10 +51,11 @@ bool BFS(UserClass source, UserClass* target){
 
 int main(int argc, char *argv[]){
 	std::string input;
-	UserClass primary("Rick");
+	UserClass primary("Rick");  //primary user
 	BST<UserClass> users;
 	BST<Song> library;
 	BST<Song> system;
+	users.insert(primary);
 	std::cout << "['add' 'befriend' 'unfriend' 'listen' 'recommend' 'remove' 'show']" << std::endl;
 	while (input != "exit"){
 		getline(std::cin, input);
@@ -113,12 +114,34 @@ int main(int argc, char *argv[]){
 
 		else if (command.getOperation() == "unfriend"){
 			// Remove existing users from friends vector
+			UserClass user1(command.getArg1());
+			UserClass user2(command.getArg2());
 
 			if (command.getArg2().empty()){
 				// One argument implies that a friendship is destroyed b/w primary user and another user
+				UserClass* user_ptr1 = users.search(user1);
+
+				if (user_ptr1 != nullptr){
+					primary.remFren(user_ptr1);
+					user_ptr1->remFren(&primary);
+					
+				}
+				else{
+					std::cout << "Error: User not found." << std::endl;
+				}
 			}
 			else if (!command.getArg1().empty() && !command.getArg2().empty()){
 				// Two arguments imply that a friendship is destroyed b/w two other users
+				UserClass* user_ptr1 = users.search(user1);
+				UserClass* user_ptr2 = users.search(user2);
+
+				if (user_ptr1 != nullptr && user_ptr2 != nullptr) {
+					user_ptr1->remFren(user_ptr2);
+					user_ptr2->remFren(user_ptr1);
+				}
+				else{
+					std::cout << "Error: User not found." << std::endl;
+				}
 			}
 		}
 
@@ -172,7 +195,7 @@ int main(int argc, char *argv[]){
 			int radius;
 			stringstream(command.getOperation()) >> radius;
 			
-			
+
 		}
 
 	}

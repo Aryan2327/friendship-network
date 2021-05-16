@@ -12,7 +12,7 @@ add user jake
 add user morty
 add user mark
 
-show songs
+show songs system
 
 befriend paul
 befriend morty
@@ -24,6 +24,8 @@ befriend sam jake
 befriend jake mark
 
 listen mark a
+
+recommend 6
 
 
 
