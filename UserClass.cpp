@@ -61,11 +61,10 @@ void UserClass::reinit(){
 }
 
 int UserClass::showFrens(){
-	cout << "Your friends are:" << endl;
+	cout << this->getName() << "'s friends: " << endl;
 	for(int i = 0; i < fren_vertex.size(); i++){
 		cout<< fren_vertex[i]->getName() << endl;
-	} 
-	cout << "That is all your friends." << endl;
+	}
 	return 0;
 }
 

@@ -11,7 +11,7 @@
 #include "BST.h"
 #include "Heap.h"
 
-const int EFN = 2;
+int EFN = 2;
 
 bool BFS(UserClass source, UserClass* target){
 	// Must initialize user objects in BST
@@ -215,13 +215,19 @@ int main(int argc, char *argv[]){
 				for (int i = 0; i < N; i++) {
 					Song *s = heap.extractMax();
 					library.insert(*s);
-
+					system.remove(*s);  // Heap should model the system maybe
 				}
 			}
 
 		}
 		else if(command.getOperation() == "heap"){
 			heap.print();
+		}
+
+		else if (command.getOperation() == "EFN"){
+			int N;
+			stringstream(command.getArg1()) >> N;
+			EFN = N;
 		}
 	}
 
